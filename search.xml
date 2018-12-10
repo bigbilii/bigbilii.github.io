@@ -1,6 +1,19 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title><![CDATA[Hexo主题NexT配置]]></title>
+    <url>%2F2018%2F12%2F10%2FHexo%E4%B8%BB%E9%A2%98NexT%E9%85%8D%E7%BD%AE%2F</url>
+    <content type="text"><![CDATA[上篇博客配置了Hexo，今天这篇文章，将介绍Hexo配置NexT主题的配置。 NexT主题下载与启动使用git，克隆最新版本，下载到/themes目录下。 12$ cd username.github.io$ git clone https://github.com/iissnan/hexo-theme-next themes/next 下载好之后，打开站点配置文件(/_config.yml),找到theme字段，将值改为next。 1theme: next 重新启动hexo站点，即可看到主题改变。 注：配置其他主题也是一样的步骤 注：如果没有看到主题改变，清理下缓存，使用hexo clean命令，再重试 配置站点配置文件站点配置文件在根目录下的_congif.yml 站点信息设置12345title: #站点名称subtitle: #副标题description: #站点描述author: #昵称language: #语言设置 注意：NexT主题中，language配置有相应的配置信息。 语言 代码 设定示例 English en language: en 简体中文 zh-Hans language: zh-Hans Français fr-FR language: fr-FR Português pt language: pt or language: pt-BR 繁體中文 zh-hk 或者 zh-tw language: zh-hk Русский язык ru language: ru Deutsch de language: de 日本語 ja language: ja Indonesian id language: id Korean ko language: ko 配置主题配置文件主题配置文件在主题目录下的/themes/next/_congif.yml 选择SchemeScheme是NexT提供的一种特性，借助于Scheme，NexT为你提供多种不同的外观。 取消想要使用的效果前面的#注释，即可开启，，123456789# ---------------------------------------------------------------# Scheme Settings# ---------------------------------------------------------------# Schemes# scheme: Muse# scheme: Mist# scheme: Piscesscheme: Gemini 设置菜单通过配置menu标签，来设置网址的菜单选项。 用法：key: link || icon key为菜单项名称，如果在配置的language中翻译项能找到对应翻译，则使用翻译，如果不能找到，则使用key。 link为菜单的链接。 icon为FontAwesome图标的名称，如果不配置，则默认使用问题图标。 menu_icons配置是否使用icon。1234567891011121314151617# ---------------------------------------------------------------# Menu Settings# ---------------------------------------------------------------menu: home: / || home about: /about/ || user tags: /tags/ || tags categories: /categories/ || th archives: /archives/ || archive #schedule: /schedule/ || calendar #sitemap: /sitemap.xml || sitemap #commonweal: /404/ || heartbeat# Enable/Disable menu icons.menu_icons: enable: true 注：如果站点在子目录下运行，则link的最前面的/删除。 注：默认菜单项为上面列出的，只有home和archives不需要手动创建，其他均需要手动创建。 设置头像修改avatar字段，值为头像链接，链接可以为：12# Sidebar Avatar http://example.com/avatar.png 地址 值 完整的互联网 URI http://example.com/avatar.png 站点内的地址 将头像放置主题目录下的 source/uploads/ （新建 uploads 目录若不存在） 配置为：avatar: /uploads/avatar.png 或者 放置在 source/images/ 目录下 配置为：avatar: /images/avatar.png 站点建立时间这个时间将在站点的底部显示，例如 ©2018。 编辑主题配置文件，新增字段since。 1since: 2018 Valine评论配置leancloudValine需要运行在leancloud上，所以需要注册其账号，创建一个应用（名字随意），进入应用，设置，应用Key，找到App ID和App Key。 配置NexT主题配置文件打开主题配置文件（/themes/_config.yml），找到Valine标签（没有可自行添加），配置如下。12345678910valine: enable: true appid: #上面的appid appkey: #上面的appkey notify: false # mail notifier , https://github.com/xCss/Valine/wiki verify: false # Verification code placeholder: 欢迎评论 # comment box placeholder avatar: mm # gravatar style guest_info: nick,mail # custom comment header pageSize: 10 # pagination size 阅读次数统计（LeanCloud)配置leancloud在配置Valine评论系统的时候，已经拥有了leancloud账号，如果没有，则可以跳转上去查看。 创建应用(名字随意）点击左侧右上角的齿轮图标，新建Class：此处的新建Class名字必须为Counter。 由于LeanCloud升级了默认的ACL权限，如果你想避免后续因为权限的问题导致次数统计显示不正常，建议在此处选择无限制。 与valine上述一样，获取该应用的App ID和App Key。 配置NexT主题配置文件打开主题配置文件（/themes/next/_config.yml），找到leancloud_visitors标签（没有可自行添加），配置如下。1234leancloud_visitors: enable: true app_id: #上面的appid app_key: #上面的appkey Local Search安装插件安装 hexo-generator-searchdb，在站点的根目录下执行以下命令：1$ npm install hexo-generator-searchdb --save 配置站点信息在/config.yml中添加12345search: path: search.xml field: post format: html limit: 10000 配置主题信息在/themes/next/config.yml中,启动本地搜索123# Local searchlocal_search: enable: true 参考NexT官方文档]]></content>
+      <categories>
+        <category>博客</category>
+      </categories>
+      <tags>
+        <tag>hexo</tag>
+        <tag>NexT</tag>
+        <tag>博客</tag>
+      </tags>
+  </entry>
+  <entry>
     <title><![CDATA[Hexo+Github博客搭建]]></title>
     <url>%2F2018%2F12%2F05%2FHexo-Github%E5%8D%9A%E5%AE%A2%E6%90%AD%E5%BB%BA%2F</url>
     <content type="text"><![CDATA[hexo是快速、简洁且高效的博客框架，本文章介绍如何利用hexo+github搭建出一个静态博客网站。 环境搭建node.js在官网下载你相应环境的node.js，根据提示进行安装。 检验安装完成： $ node -v git在官网下载相应环境的git，根据提示安装。 安装成功后，配置相应的账号和邮箱。（这里需要github账号） 12$ git config --global user.name &quot;username&quot;$ git config --global user.email username@gmail.com hexo安装node.js之后，根据官网的提示，安装hexo。 1$ npm install hexo-cli -g 搭建本地博客创建博客目录上面三个环境搭建好之后，在本地的终端中，进入某个路径，在该路径下建立博客目录。123$ hexo init username.github.io$ cd username.github.io$ npm install 生成静态页面并运行123$ hexo clean$ hexo g$ hexo s g 即generates 即server 在浏览器中，输入地址 localhost:4000 即可看到效果。 这样一个本地的hexo博客系统以及搭建好了。 部署到Github创建一个username.github.io的public仓库创建一个仓库，根据你的github的username来创建一个public的仓库，仓库名为username.github.io 安装 hexo-deployer-git1$ npm install hexo-deployer-git --save 配置git在本地站点配置文件的：_config.yml 文件中配置deploy1234deploy: type: git repo: &lt;repository url&gt; branch: master 发布1$ hexo d 这样就能在username.github.com中看到你的博客系统了。]]></content>
@@ -9,8 +22,8 @@
       </categories>
       <tags>
         <tag>hexo</tag>
-        <tag>Github</tag>
         <tag>博客</tag>
+        <tag>Github</tag>
       </tags>
   </entry>
   <entry>
