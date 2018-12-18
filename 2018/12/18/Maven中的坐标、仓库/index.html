@@ -69,7 +69,7 @@
 
 
 
-  <meta name="keywords" content="hexo,博客,NexT,">
+  <meta name="keywords" content="Maven,仓库,镜像,坐标,">
 
 
 
@@ -82,18 +82,18 @@
 
 
 
-<meta name="description" content="上篇博客配置了Hexo，今天这篇文章，将介绍Hexo配置NexT主题的配置。 NexT主题下载与启动使用git，克隆最新版本，下载到/themes目录下。 12$ cd username.github.io$ git clone https://github.com/iissnan/hexo-theme-next themes/next 下载好之后，打开站点配置文件(/_config.yml),找">
-<meta name="keywords" content="hexo,博客,NexT">
+<meta name="description" content="坐标在Maven中，任何一个插件、项目输出都可以被称之为构建，所有构建都通过坐标作为其唯一标识。 大致由下面五个元素构成：  groupId：一般为公司或组织的逆向域名。 artifactId：一般为项目名称+模块名称。 version：当前该Maven项目的版本。 packaging：Maven项目的打包方式，默认是jar，也可以打包成war, ear等。 classifier：定义一些附件，更">
+<meta name="keywords" content="Maven,仓库,镜像,坐标">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Hexo主题NexT配置">
-<meta property="og:url" content="https://bigbilii.github.io/2018/12/10/Hexo主题NexT配置/index.html">
+<meta property="og:title" content="Maven中的坐标、仓库">
+<meta property="og:url" content="https://bigbilii.github.io/2018/12/18/Maven中的坐标、仓库/index.html">
 <meta property="og:site_name" content="郭鑫的个人博客">
-<meta property="og:description" content="上篇博客配置了Hexo，今天这篇文章，将介绍Hexo配置NexT主题的配置。 NexT主题下载与启动使用git，克隆最新版本，下载到/themes目录下。 12$ cd username.github.io$ git clone https://github.com/iissnan/hexo-theme-next themes/next 下载好之后，打开站点配置文件(/_config.yml),找">
+<meta property="og:description" content="坐标在Maven中，任何一个插件、项目输出都可以被称之为构建，所有构建都通过坐标作为其唯一标识。 大致由下面五个元素构成：  groupId：一般为公司或组织的逆向域名。 artifactId：一般为项目名称+模块名称。 version：当前该Maven项目的版本。 packaging：Maven项目的打包方式，默认是jar，也可以打包成war, ear等。 classifier：定义一些附件，更">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2018-12-10T14:06:45.986Z">
+<meta property="og:updated_time" content="2018-12-18T12:05:01.652Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Hexo主题NexT配置">
-<meta name="twitter:description" content="上篇博客配置了Hexo，今天这篇文章，将介绍Hexo配置NexT主题的配置。 NexT主题下载与启动使用git，克隆最新版本，下载到/themes目录下。 12$ cd username.github.io$ git clone https://github.com/iissnan/hexo-theme-next themes/next 下载好之后，打开站点配置文件(/_config.yml),找">
+<meta name="twitter:title" content="Maven中的坐标、仓库">
+<meta name="twitter:description" content="坐标在Maven中，任何一个插件、项目输出都可以被称之为构建，所有构建都通过坐标作为其唯一标识。 大致由下面五个元素构成：  groupId：一般为公司或组织的逆向域名。 artifactId：一般为项目名称+模块名称。 version：当前该Maven项目的版本。 packaging：Maven项目的打包方式，默认是jar，也可以打包成war, ear等。 classifier：定义一些附件，更">
 
 
 
@@ -123,13 +123,13 @@
 
 
 
-  <link rel="canonical" href="https://bigbilii.github.io/2018/12/10/Hexo主题NexT配置/">
+  <link rel="canonical" href="https://bigbilii.github.io/2018/12/18/Maven中的坐标、仓库/">
 
 
 
 
 
-  <title>Hexo主题NexT配置 | 郭鑫的个人博客</title>
+  <title>Maven中的坐标、仓库 | 郭鑫的个人博客</title>
   
 
 
@@ -298,7 +298,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://bigbilii.github.io/2018/12/10/Hexo主题NexT配置/">
+    <link itemprop="mainEntityOfPage" href="https://bigbilii.github.io/2018/12/18/Maven中的坐标、仓库/">
 
     <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Guo Xin">
@@ -315,7 +315,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">Hexo主题NexT配置</h1>
+          <h1 class="post-title" itemprop="name headline">Maven中的坐标、仓库</h1>
         
 
         <div class="post-meta">
@@ -327,8 +327,8 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-12-10T20:37:09+08:00">
-                2018-12-10
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-12-18T19:08:47+08:00">
+                2018-12-18
               </time>
             
 
@@ -350,8 +350,8 @@
               
               
                 <span itemprop="about" itemscope="" itemtype="http://schema.org/Thing">
-                  <a href="/categories/博客/" itemprop="url" rel="index">
-                    <span itemprop="name">博客</span>
+                  <a href="/categories/Maven/" itemprop="url" rel="index">
+                    <span itemprop="name">Maven</span>
                   </a>
                 </span>
 
@@ -368,8 +368,8 @@
                 <span class="post-meta-item-icon">
                   <i class="fa fa-comment-o"></i>
                 </span>
-                <a href="/2018/12/10/Hexo主题NexT配置/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count valine-comment-count" data-xid="/2018/12/10/Hexo主题NexT配置/" itemprop="commentCount"></span>
+                <a href="/2018/12/18/Maven中的坐标、仓库/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count valine-comment-count" data-xid="/2018/12/18/Maven中的坐标、仓库/" itemprop="commentCount"></span>
                 </a>
               </span>
             
@@ -377,7 +377,7 @@
 
           
           
-             <span id="/2018/12/10/Hexo主题NexT配置/" class="leancloud_visitors" data-flag-title="Hexo主题NexT配置">
+             <span id="/2018/12/18/Maven中的坐标、仓库/" class="leancloud_visitors" data-flag-title="Maven中的坐标、仓库">
                <span class="post-meta-divider">|</span>
                <span class="post-meta-item-icon">
                  <i class="fa fa-eye"></i>
@@ -408,127 +408,25 @@
       
 
       
-        <p><a href="https://bigbilii.github.io/2018/12/05/Hexo-Github%E5%8D%9A%E5%AE%A2%E6%90%AD%E5%BB%BA/">上篇博客</a>配置了Hexo，今天这篇文章，将介绍Hexo配置NexT主题的配置。</p>
-<h2 id="NexT主题下载与启动"><a href="#NexT主题下载与启动" class="headerlink" title="NexT主题下载与启动"></a>NexT主题下载与启动</h2><p>使用git，克隆最新版本，下载到<code>/themes</code>目录下。</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">$ cd username.github.io</span><br><span class="line">$ git clone https://github.com/iissnan/hexo-theme-next themes/next</span><br></pre></td></tr></table></figure>
-<p>下载好之后，打开站点配置文件(/_config.yml),找到<code>theme</code>字段，将值改为next。</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">theme: next</span><br></pre></td></tr></table></figure>
-<p>重新启动hexo站点，即可看到主题改变。</p>
-<p><em>注：配置其他主题也是一样的步骤</em></p>
-<p><em>注：如果没有看到主题改变，清理下缓存，使用hexo clean命令，再重试</em></p>
-<h2 id="配置站点配置文件"><a href="#配置站点配置文件" class="headerlink" title="配置站点配置文件"></a>配置站点配置文件</h2><p>站点配置文件在根目录下的<code>_congif.yml</code></p>
-<h3 id="站点信息设置"><a href="#站点信息设置" class="headerlink" title="站点信息设置"></a>站点信息设置</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">title: #站点名称</span><br><span class="line">subtitle: #副标题</span><br><span class="line">description: #站点描述</span><br><span class="line">author: #昵称</span><br><span class="line">language: #语言设置</span><br></pre></td></tr></table></figure>
-<p>注意：NexT主题中，language配置有相应的配置信息。</p>
-<blockquote>
-<table>
-<thead>
-<tr>
-<th>语言</th>
-<th style="text-align:right">代码</th>
-<th style="text-align:center">设定示例</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>English</td>
-<td style="text-align:right">en</td>
-<td style="text-align:center">language: en</td>
-</tr>
-<tr>
-<td>简体中文</td>
-<td style="text-align:right">zh-Hans</td>
-<td style="text-align:center">language: zh-Hans</td>
-</tr>
-<tr>
-<td>Français</td>
-<td style="text-align:right">fr-FR</td>
-<td style="text-align:center">language: fr-FR</td>
-</tr>
-<tr>
-<td>Português</td>
-<td style="text-align:right">pt</td>
-<td style="text-align:center">language: pt or language: pt-BR</td>
-</tr>
-<tr>
-<td>繁體中文</td>
-<td style="text-align:right">zh-hk 或者 zh-tw</td>
-<td style="text-align:center">language: zh-hk</td>
-</tr>
-<tr>
-<td>Русский</td>
-<td style="text-align:right">язык    ru</td>
-<td style="text-align:center">language: ru</td>
-</tr>
-<tr>
-<td>Deutsch</td>
-<td style="text-align:right">de</td>
-<td style="text-align:center">language: de</td>
-</tr>
-<tr>
-<td>日本語</td>
-<td style="text-align:right">ja</td>
-<td style="text-align:center">language: ja</td>
-</tr>
-<tr>
-<td>Indonesian</td>
-<td style="text-align:right">id</td>
-<td style="text-align:center">language: id</td>
-</tr>
-<tr>
-<td>Korean</td>
-<td style="text-align:right">ko</td>
-<td style="text-align:center">language: ko</td>
-</tr>
-</tbody>
-</table>
-</blockquote>
-<h2 id="配置主题配置文件"><a href="#配置主题配置文件" class="headerlink" title="配置主题配置文件"></a>配置主题配置文件</h2><p>主题配置文件在主题目录下的<code>/themes/next/_congif.yml</code></p>
-<h3 id="选择Scheme"><a href="#选择Scheme" class="headerlink" title="选择Scheme"></a>选择Scheme</h3><p>Scheme是NexT提供的一种特性，借助于Scheme，NexT为你提供多种不同的外观。</p>
-<p>取消想要使用的效果前面的<code>#</code>注释，即可开启，，<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"># ---------------------------------------------------------------</span><br><span class="line"># Scheme Settings</span><br><span class="line"># ---------------------------------------------------------------</span><br><span class="line"></span><br><span class="line"># Schemes</span><br><span class="line"># scheme: Muse</span><br><span class="line"># scheme: Mist</span><br><span class="line"># scheme: Pisces</span><br><span class="line">scheme: Gemini</span><br></pre></td></tr></table></figure></p>
-<h3 id="设置菜单"><a href="#设置菜单" class="headerlink" title="设置菜单"></a>设置菜单</h3><p>通过配置menu标签，来设置网址的菜单选项。</p>
-<p>用法：key: link || icon</p>
-<p>key为菜单项名称，如果在配置的language中翻译项能找到对应翻译，则使用翻译，如果不能找到，则使用key。</p>
-<p>link为菜单的链接。</p>
-<p>icon为FontAwesome图标的名称，如果不配置，则默认使用问题图标。</p>
-<p>menu_icons配置是否使用icon。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"># ---------------------------------------------------------------</span><br><span class="line"># Menu Settings</span><br><span class="line"># ---------------------------------------------------------------</span><br><span class="line"></span><br><span class="line">menu:</span><br><span class="line">  home: / || home</span><br><span class="line">  about: /about/ || user</span><br><span class="line">  tags: /tags/ || tags</span><br><span class="line">  categories: /categories/ || th</span><br><span class="line">  archives: /archives/ || archive</span><br><span class="line">  #schedule: /schedule/ || calendar</span><br><span class="line">  #sitemap: /sitemap.xml || sitemap</span><br><span class="line">  #commonweal: /404/ || heartbeat</span><br><span class="line"></span><br><span class="line"># Enable/Disable menu icons.</span><br><span class="line">menu_icons:</span><br><span class="line">  enable: true</span><br></pre></td></tr></table></figure></p>
-<p><em>注：如果站点在子目录下运行，则link的最前面的/删除。</em></p>
-<p><em>注：默认菜单项为上面列出的，只有home和archives不需要手动创建，其他均需要手动创建。</em></p>
-<h3 id="设置头像"><a href="#设置头像" class="headerlink" title="设置头像"></a>设置头像</h3><p>修改<code>avatar</code>字段，值为头像链接，链接可以为：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"># Sidebar Avatar</span><br><span class="line"> http://example.com/avatar.png</span><br></pre></td></tr></table></figure></p>
-<blockquote>
-<table>
-<thead>
-<tr>
-<th>地址</th>
-<th>值</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>完整的互联网 URI</td>
-<td><a href="http://example.com/avatar.png" target="_blank" rel="noopener">http://example.com/avatar.png</a></td>
-</tr>
-<tr>
-<td>站点内的地址</td>
-<td>将头像放置主题目录下的 source/uploads/ （新建 uploads 目录若不存在） 配置为：avatar: /uploads/avatar.png 或者 放置在 source/images/ 目录下 配置为：avatar: /images/avatar.png</td>
-</tr>
-</tbody>
-</table>
-</blockquote>
-<h3 id="站点建立时间"><a href="#站点建立时间" class="headerlink" title="站点建立时间"></a>站点建立时间</h3><p>这个时间将在站点的底部显示，例如 ©2018。 编辑主题配置文件，新增字段since。</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">since: 2018</span><br></pre></td></tr></table></figure>
-<h2 id="Valine评论"><a href="#Valine评论" class="headerlink" title="Valine评论"></a>Valine评论</h2><h3 id="配置leancloud"><a href="#配置leancloud" class="headerlink" title="配置leancloud"></a>配置leancloud</h3><p>Valine需要运行在leancloud上，所以需要<a href="https://leancloud.cn/" target="_blank" rel="noopener">注册</a>其账号，创建一个应用（名字随意），进入应用，设置，应用Key，找到App ID和App Key。</p>
-<h3 id="配置NexT主题配置文件"><a href="#配置NexT主题配置文件" class="headerlink" title="配置NexT主题配置文件"></a>配置NexT主题配置文件</h3><p>打开主题配置文件（/themes/_config.yml），找到Valine标签（没有可自行添加），配置如下。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">valine:</span><br><span class="line">  enable: true</span><br><span class="line">  appid: #上面的appid</span><br><span class="line">  appkey:  #上面的appkey</span><br><span class="line">  notify: false # mail notifier , https://github.com/xCss/Valine/wiki</span><br><span class="line">  verify: false # Verification code</span><br><span class="line">  placeholder: 欢迎评论 # comment box placeholder</span><br><span class="line">  avatar: mm # gravatar style</span><br><span class="line">  guest_info: nick,mail # custom comment header</span><br><span class="line">  pageSize: 10 # pagination size</span><br></pre></td></tr></table></figure></p>
-<h2 id="阅读次数统计（LeanCloud"><a href="#阅读次数统计（LeanCloud" class="headerlink" title="阅读次数统计（LeanCloud)"></a>阅读次数统计（LeanCloud)</h2><h3 id="配置leancloud-1"><a href="#配置leancloud-1" class="headerlink" title="配置leancloud"></a>配置leancloud</h3><p>在配置Valine评论系统的时候，已经拥有了leancloud账号，如果没有，则可以跳转上去查看。</p>
-<p>创建应用(名字随意）点击左侧右上角的齿轮图标，新建Class：<strong>此处的新建Class名字必须为Counter。</strong></p>
-<blockquote>
-<p>由于LeanCloud升级了默认的ACL权限，如果你想避免后续因为权限的问题导致次数统计显示不正常，建议在此处选择无限制。</p>
-</blockquote>
-<p>与valine上述一样，获取该应用的App ID和App Key。</p>
-<h3 id="配置NexT主题配置文件-1"><a href="#配置NexT主题配置文件-1" class="headerlink" title="配置NexT主题配置文件"></a>配置NexT主题配置文件</h3><p>打开主题配置文件（/themes/next/_config.yml），找到leancloud_visitors标签（没有可自行添加），配置如下。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">leancloud_visitors:</span><br><span class="line">  enable: true</span><br><span class="line">  app_id: #上面的appid</span><br><span class="line">  app_key: #上面的appkey</span><br></pre></td></tr></table></figure></p>
-<h2 id="Local-Search"><a href="#Local-Search" class="headerlink" title="Local Search"></a>Local Search</h2><h3 id="安装插件"><a href="#安装插件" class="headerlink" title="安装插件"></a>安装插件</h3><p>安装 hexo-generator-searchdb，在站点的根目录下执行以下命令：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ npm install hexo-generator-searchdb --save</span><br></pre></td></tr></table></figure></p>
-<h3 id="配置站点信息"><a href="#配置站点信息" class="headerlink" title="配置站点信息"></a>配置站点信息</h3><p>在<code>/config.yml</code>中添加<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">search:</span><br><span class="line">  path: search.xml</span><br><span class="line">  field: post</span><br><span class="line">  format: html</span><br><span class="line">  limit: 10000</span><br></pre></td></tr></table></figure></p>
-<h3 id="配置主题信息"><a href="#配置主题信息" class="headerlink" title="配置主题信息"></a>配置主题信息</h3><p>在<code>/themes/next/config.yml</code>中,启动本地搜索<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"># Local search</span><br><span class="line">local_search:</span><br><span class="line">  enable: true</span><br></pre></td></tr></table></figure></p>
-<h2 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h2><p><a href="https://theme-next.iissnan.com/" target="_blank" rel="noopener">NexT官方文档</a></p>
+        <h2 id="坐标"><a href="#坐标" class="headerlink" title="坐标"></a>坐标</h2><p>在Maven中，任何一个插件、项目输出都可以被称之为<strong>构建</strong>，所有构建都通过<strong>坐标</strong>作为其<strong>唯一标识</strong>。</p>
+<p>大致由下面五个元素构成：</p>
+<ul>
+<li>groupId：一般为公司或组织的逆向域名。</li>
+<li>artifactId：一般为项目名称+模块名称。</li>
+<li>version：当前该Maven项目的版本。</li>
+<li>packaging：Maven项目的打包方式，默认是jar，也可以打包成war, ear等。</li>
+<li>classifier：定义一些附件，更加细化的后缀，用来定义比如源码、文档、x86版本、ios版本等。</li>
+</ul>
+<p>前三个是必须定义，后两个视情况而定。</p>
+<p>总之，每一个元素坐标，都是为了准确的找到一个构建而设定的。</p>
+<h2 id="仓库"><a href="#仓库" class="headerlink" title="仓库"></a>仓库</h2><p>Maven中的仓库，用来存放构建，分为<strong>本地仓库</strong>和<strong>远程仓库</strong></p>
+<p>如果在所依赖的构建在本地仓库中没有查找到，则会去远程仓库(默认为<a href="https://mvnrepository.com/" target="_blank" rel="noopener">maven远程中央仓库</a>)中下载。</p>
+<h3 id="修改本地仓库"><a href="#修改本地仓库" class="headerlink" title="修改本地仓库"></a>修改本地仓库</h3><p>在安装目录下的<code>conf</code>文件夹中，打开<code>settings.xml</code>文件。找到<code>localRepository</code>，在3.6.0版本中，会有下面一段注解，意思就是本地仓库默认在<code>${user.home}/.m2/repository</code>下，如果需要修改，则添加<code>&lt;localRepository&gt;/path/to/local/repo&lt;/localRepository&gt;</code>这个标签，里面的值为你设置的本地仓库路径。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">&lt;!-- localRepository</span><br><span class="line">  | The path to the local repository maven will use to store artifacts.</span><br><span class="line">  |</span><br><span class="line">  | Default: $&#123;user.home&#125;/.m2/repository</span><br><span class="line"> &lt;localRepository&gt;/path/to/local/repo&lt;/localRepository&gt;</span><br><span class="line"> --&gt;</span><br><span class="line">   &lt;localRepository&gt;你的本地仓库路径&lt;/localRepository&gt;</span><br></pre></td></tr></table></figure>
+<h3 id="镜像仓库"><a href="#镜像仓库" class="headerlink" title="镜像仓库"></a>镜像仓库</h3><p>由于maven的中央仓库设置在国外，访问和下载速度很慢，则可以设置一个国内的镜像仓库，这样就能直接从国内的镜像仓库中下载所需要的构建了。</p>
+<p>在安装目录下的<code>conf</code>文件夹中，打开<code>settings.xml</code>文件。找到<code>mirrors</code>，添加相应内容即可。</p>
+<p>镜像仓库就相当于个拦截器，它会拦截maven对远程仓库的请求，将请求的地址重定向到<code>&lt;url&gt;</code>标签所配置的地址，所拦截的范围为<code>&lt;mirrorOf&gt;</code>标签所配置的内容，拦截范围内容为<strong>仓库ID</strong>，可设置多个，用 <code>,</code> 隔开，也可以用 <code>!</code> 设置不用拦截仓库id。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line">&lt;mirrors&gt;</span><br><span class="line">    &lt;!-- mirror</span><br><span class="line">     | Specifies a repository mirror site to use instead of a given repository. The repository that</span><br><span class="line">     | this mirror serves has an ID that matches the mirrorOf element of this mirror. IDs are used</span><br><span class="line">     | for inheritance and direct lookup purposes, and must be unique across the set of mirrors.</span><br><span class="line">     |</span><br><span class="line">    &lt;mirror&gt;</span><br><span class="line">      &lt;id&gt;mirrorId&lt;/id&gt;</span><br><span class="line">      &lt;mirrorOf&gt;repositoryId&lt;/mirrorOf&gt;</span><br><span class="line">      &lt;name&gt;Human Readable Name for this Mirror.&lt;/name&gt;</span><br><span class="line">      &lt;url&gt;http://my.repository.com/repo/path&lt;/url&gt;</span><br><span class="line">    &lt;/mirror&gt;</span><br><span class="line">     --&gt;</span><br><span class="line">     &lt;!-- 阿里云镜像 --&gt;</span><br><span class="line">    &lt;mirror&gt;</span><br><span class="line">      &lt;id&gt;alimaven&lt;/id&gt;</span><br><span class="line">      &lt;name&gt;aliyun maven&lt;/name&gt;</span><br><span class="line">      &lt;url&gt;http://maven.aliyun.com/nexus/content/groups/public/&lt;/url&gt;</span><br><span class="line">      &lt;mirrorOf&gt;central&lt;/mirrorOf&gt;        </span><br><span class="line">    &lt;/mirror&gt;</span><br><span class="line">  &lt;/mirrors&gt;</span><br></pre></td></tr></table></figure>
 
       
     </div>
@@ -575,11 +473,13 @@
       
         <div class="post-tags">
           
-            <a href="/tags/hexo/" rel="tag"># hexo</a>
+            <a href="/tags/Maven/" rel="tag"># Maven</a>
           
-            <a href="/tags/博客/" rel="tag"># 博客</a>
+            <a href="/tags/仓库/" rel="tag"># 仓库</a>
           
-            <a href="/tags/NexT/" rel="tag"># NexT</a>
+            <a href="/tags/镜像/" rel="tag"># 镜像</a>
+          
+            <a href="/tags/坐标/" rel="tag"># 坐标</a>
           
         </div>
       
@@ -607,8 +507,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2018/12/05/Hexo-Github博客搭建/" rel="next" title="Hexo+Github博客搭建">
-                <i class="fa fa-chevron-left"></i> Hexo+Github博客搭建
+              <a href="/2018/12/16/Maven入门/" rel="next" title="Maven入门">
+                <i class="fa fa-chevron-left"></i> Maven入门
               </a>
             
           </div>
@@ -616,10 +516,6 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2018/12/16/Maven入门/" rel="prev" title="Maven入门">
-                Maven入门 <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -763,7 +659,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#NexT主题下载与启动"><span class="nav-number">1.</span> <span class="nav-text">NexT主题下载与启动</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#配置站点配置文件"><span class="nav-number">2.</span> <span class="nav-text">配置站点配置文件</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#站点信息设置"><span class="nav-number">2.1.</span> <span class="nav-text">站点信息设置</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#配置主题配置文件"><span class="nav-number">3.</span> <span class="nav-text">配置主题配置文件</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#选择Scheme"><span class="nav-number">3.1.</span> <span class="nav-text">选择Scheme</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#设置菜单"><span class="nav-number">3.2.</span> <span class="nav-text">设置菜单</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#设置头像"><span class="nav-number">3.3.</span> <span class="nav-text">设置头像</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#站点建立时间"><span class="nav-number">3.4.</span> <span class="nav-text">站点建立时间</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Valine评论"><span class="nav-number">4.</span> <span class="nav-text">Valine评论</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#配置leancloud"><span class="nav-number">4.1.</span> <span class="nav-text">配置leancloud</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#配置NexT主题配置文件"><span class="nav-number">4.2.</span> <span class="nav-text">配置NexT主题配置文件</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#阅读次数统计（LeanCloud"><span class="nav-number">5.</span> <span class="nav-text">阅读次数统计（LeanCloud)</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#配置leancloud-1"><span class="nav-number">5.1.</span> <span class="nav-text">配置leancloud</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#配置NexT主题配置文件-1"><span class="nav-number">5.2.</span> <span class="nav-text">配置NexT主题配置文件</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Local-Search"><span class="nav-number">6.</span> <span class="nav-text">Local Search</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#安装插件"><span class="nav-number">6.1.</span> <span class="nav-text">安装插件</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#配置站点信息"><span class="nav-number">6.2.</span> <span class="nav-text">配置站点信息</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#配置主题信息"><span class="nav-number">6.3.</span> <span class="nav-text">配置主题信息</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#参考"><span class="nav-number">7.</span> <span class="nav-text">参考</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#坐标"><span class="nav-number">1.</span> <span class="nav-text">坐标</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#仓库"><span class="nav-number">2.</span> <span class="nav-text">仓库</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#修改本地仓库"><span class="nav-number">2.1.</span> <span class="nav-text">修改本地仓库</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#镜像仓库"><span class="nav-number">2.2.</span> <span class="nav-text">镜像仓库</span></a></li></ol></li></ol></div>
             
 
           </div>

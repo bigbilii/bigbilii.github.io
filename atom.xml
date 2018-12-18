@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://bigbilii.github.io/"/>
-  <updated>2018-12-16T07:30:35.807Z</updated>
+  <updated>2018-12-18T12:05:01.652Z</updated>
   <id>https://bigbilii.github.io/</id>
   
   <author>
@@ -15,6 +15,37 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>Maven中的坐标、仓库</title>
+    <link href="https://bigbilii.github.io/2018/12/18/Maven%E4%B8%AD%E7%9A%84%E5%9D%90%E6%A0%87%E3%80%81%E4%BB%93%E5%BA%93/"/>
+    <id>https://bigbilii.github.io/2018/12/18/Maven中的坐标、仓库/</id>
+    <published>2018-12-18T11:08:47.000Z</published>
+    <updated>2018-12-18T12:05:01.652Z</updated>
+    
+    <content type="html"><![CDATA[<h2 id="坐标"><a href="#坐标" class="headerlink" title="坐标"></a>坐标</h2><p>在Maven中，任何一个插件、项目输出都可以被称之为<strong>构建</strong>，所有构建都通过<strong>坐标</strong>作为其<strong>唯一标识</strong>。</p><p>大致由下面五个元素构成：</p><ul><li>groupId：一般为公司或组织的逆向域名。</li><li>artifactId：一般为项目名称+模块名称。</li><li>version：当前该Maven项目的版本。</li><li>packaging：Maven项目的打包方式，默认是jar，也可以打包成war, ear等。</li><li>classifier：定义一些附件，更加细化的后缀，用来定义比如源码、文档、x86版本、ios版本等。</li></ul><p>前三个是必须定义，后两个视情况而定。</p><p>总之，每一个元素坐标，都是为了准确的找到一个构建而设定的。</p><h2 id="仓库"><a href="#仓库" class="headerlink" title="仓库"></a>仓库</h2><p>Maven中的仓库，用来存放构建，分为<strong>本地仓库</strong>和<strong>远程仓库</strong></p><p>如果在所依赖的构建在本地仓库中没有查找到，则会去远程仓库(默认为<a href="https://mvnrepository.com/" target="_blank" rel="noopener">maven远程中央仓库</a>)中下载。</p><h3 id="修改本地仓库"><a href="#修改本地仓库" class="headerlink" title="修改本地仓库"></a>修改本地仓库</h3><p>在安装目录下的<code>conf</code>文件夹中，打开<code>settings.xml</code>文件。找到<code>localRepository</code>，在3.6.0版本中，会有下面一段注解，意思就是本地仓库默认在<code>${user.home}/.m2/repository</code>下，如果需要修改，则添加<code>&lt;localRepository&gt;/path/to/local/repo&lt;/localRepository&gt;</code>这个标签，里面的值为你设置的本地仓库路径。</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">&lt;!-- localRepository</span><br><span class="line">  | The path to the local repository maven will use to store artifacts.</span><br><span class="line">  |</span><br><span class="line">  | Default: $&#123;user.home&#125;/.m2/repository</span><br><span class="line"> &lt;localRepository&gt;/path/to/local/repo&lt;/localRepository&gt;</span><br><span class="line"> --&gt;</span><br><span class="line">   &lt;localRepository&gt;你的本地仓库路径&lt;/localRepository&gt;</span><br></pre></td></tr></table></figure><h3 id="镜像仓库"><a href="#镜像仓库" class="headerlink" title="镜像仓库"></a>镜像仓库</h3><p>由于maven的中央仓库设置在国外，访问和下载速度很慢，则可以设置一个国内的镜像仓库，这样就能直接从国内的镜像仓库中下载所需要的构建了。</p><p>在安装目录下的<code>conf</code>文件夹中，打开<code>settings.xml</code>文件。找到<code>mirrors</code>，添加相应内容即可。</p><p>镜像仓库就相当于个拦截器，它会拦截maven对远程仓库的请求，将请求的地址重定向到<code>&lt;url&gt;</code>标签所配置的地址，所拦截的范围为<code>&lt;mirrorOf&gt;</code>标签所配置的内容，拦截范围内容为<strong>仓库ID</strong>，可设置多个，用 <code>,</code> 隔开，也可以用 <code>!</code> 设置不用拦截仓库id。</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line">&lt;mirrors&gt;</span><br><span class="line">    &lt;!-- mirror</span><br><span class="line">     | Specifies a repository mirror site to use instead of a given repository. The repository that</span><br><span class="line">     | this mirror serves has an ID that matches the mirrorOf element of this mirror. IDs are used</span><br><span class="line">     | for inheritance and direct lookup purposes, and must be unique across the set of mirrors.</span><br><span class="line">     |</span><br><span class="line">    &lt;mirror&gt;</span><br><span class="line">      &lt;id&gt;mirrorId&lt;/id&gt;</span><br><span class="line">      &lt;mirrorOf&gt;repositoryId&lt;/mirrorOf&gt;</span><br><span class="line">      &lt;name&gt;Human Readable Name for this Mirror.&lt;/name&gt;</span><br><span class="line">      &lt;url&gt;http://my.repository.com/repo/path&lt;/url&gt;</span><br><span class="line">    &lt;/mirror&gt;</span><br><span class="line">     --&gt;</span><br><span class="line">     &lt;!-- 阿里云镜像 --&gt;</span><br><span class="line">    &lt;mirror&gt;</span><br><span class="line">      &lt;id&gt;alimaven&lt;/id&gt;</span><br><span class="line">      &lt;name&gt;aliyun maven&lt;/name&gt;</span><br><span class="line">      &lt;url&gt;http://maven.aliyun.com/nexus/content/groups/public/&lt;/url&gt;</span><br><span class="line">      &lt;mirrorOf&gt;central&lt;/mirrorOf&gt;        </span><br><span class="line">    &lt;/mirror&gt;</span><br><span class="line">  &lt;/mirrors&gt;</span><br></pre></td></tr></table></figure>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;h2 id=&quot;坐标&quot;&gt;&lt;a href=&quot;#坐标&quot; class=&quot;headerlink&quot; title=&quot;坐标&quot;&gt;&lt;/a&gt;坐标&lt;/h2&gt;&lt;p&gt;在Maven中，任何一个插件、项目输出都可以被称之为&lt;strong&gt;构建&lt;/strong&gt;，所有构建都通过&lt;strong&gt;坐标&lt;/stron
+      
+    
+    </summary>
+    
+      <category term="Maven" scheme="https://bigbilii.github.io/categories/Maven/"/>
+    
+    
+      <category term="Maven" scheme="https://bigbilii.github.io/tags/Maven/"/>
+    
+      <category term="仓库" scheme="https://bigbilii.github.io/tags/%E4%BB%93%E5%BA%93/"/>
+    
+      <category term="镜像" scheme="https://bigbilii.github.io/tags/%E9%95%9C%E5%83%8F/"/>
+    
+      <category term="坐标" scheme="https://bigbilii.github.io/tags/%E5%9D%90%E6%A0%87/"/>
+    
+  </entry>
   
   <entry>
     <title>Maven入门</title>
@@ -64,9 +95,9 @@
     
       <category term="hexo" scheme="https://bigbilii.github.io/tags/hexo/"/>
     
-      <category term="NexT" scheme="https://bigbilii.github.io/tags/NexT/"/>
-    
       <category term="博客" scheme="https://bigbilii.github.io/tags/%E5%8D%9A%E5%AE%A2/"/>
+    
+      <category term="NexT" scheme="https://bigbilii.github.io/tags/NexT/"/>
     
   </entry>
   
@@ -94,9 +125,9 @@
     
       <category term="hexo" scheme="https://bigbilii.github.io/tags/hexo/"/>
     
-      <category term="博客" scheme="https://bigbilii.github.io/tags/%E5%8D%9A%E5%AE%A2/"/>
-    
       <category term="Github" scheme="https://bigbilii.github.io/tags/Github/"/>
+    
+      <category term="博客" scheme="https://bigbilii.github.io/tags/%E5%8D%9A%E5%AE%A2/"/>
     
   </entry>
   

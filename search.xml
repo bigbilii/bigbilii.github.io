@@ -1,6 +1,20 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title><![CDATA[Maven中的坐标、仓库]]></title>
+    <url>%2F2018%2F12%2F18%2FMaven%E4%B8%AD%E7%9A%84%E5%9D%90%E6%A0%87%E3%80%81%E4%BB%93%E5%BA%93%2F</url>
+    <content type="text"><![CDATA[坐标在Maven中，任何一个插件、项目输出都可以被称之为构建，所有构建都通过坐标作为其唯一标识。 大致由下面五个元素构成： groupId：一般为公司或组织的逆向域名。 artifactId：一般为项目名称+模块名称。 version：当前该Maven项目的版本。 packaging：Maven项目的打包方式，默认是jar，也可以打包成war, ear等。 classifier：定义一些附件，更加细化的后缀，用来定义比如源码、文档、x86版本、ios版本等。 前三个是必须定义，后两个视情况而定。 总之，每一个元素坐标，都是为了准确的找到一个构建而设定的。 仓库Maven中的仓库，用来存放构建，分为本地仓库和远程仓库 如果在所依赖的构建在本地仓库中没有查找到，则会去远程仓库(默认为maven远程中央仓库)中下载。 修改本地仓库在安装目录下的conf文件夹中，打开settings.xml文件。找到localRepository，在3.6.0版本中，会有下面一段注解，意思就是本地仓库默认在${user.home}/.m2/repository下，如果需要修改，则添加&lt;localRepository&gt;/path/to/local/repo&lt;/localRepository&gt;这个标签，里面的值为你设置的本地仓库路径。 1234567&lt;!-- localRepository | The path to the local repository maven will use to store artifacts. | | Default: $&#123;user.home&#125;/.m2/repository &lt;localRepository&gt;/path/to/local/repo&lt;/localRepository&gt; --&gt; &lt;localRepository&gt;你的本地仓库路径&lt;/localRepository&gt; 镜像仓库由于maven的中央仓库设置在国外，访问和下载速度很慢，则可以设置一个国内的镜像仓库，这样就能直接从国内的镜像仓库中下载所需要的构建了。 在安装目录下的conf文件夹中，打开settings.xml文件。找到mirrors，添加相应内容即可。 镜像仓库就相当于个拦截器，它会拦截maven对远程仓库的请求，将请求的地址重定向到&lt;url&gt;标签所配置的地址，所拦截的范围为&lt;mirrorOf&gt;标签所配置的内容，拦截范围内容为仓库ID，可设置多个，用 , 隔开，也可以用 ! 设置不用拦截仓库id。 123456789101112131415161718192021&lt;mirrors&gt; &lt;!-- mirror | Specifies a repository mirror site to use instead of a given repository. The repository that | this mirror serves has an ID that matches the mirrorOf element of this mirror. IDs are used | for inheritance and direct lookup purposes, and must be unique across the set of mirrors. | &lt;mirror&gt; &lt;id&gt;mirrorId&lt;/id&gt; &lt;mirrorOf&gt;repositoryId&lt;/mirrorOf&gt; &lt;name&gt;Human Readable Name for this Mirror.&lt;/name&gt; &lt;url&gt;http://my.repository.com/repo/path&lt;/url&gt; &lt;/mirror&gt; --&gt; &lt;!-- 阿里云镜像 --&gt; &lt;mirror&gt; &lt;id&gt;alimaven&lt;/id&gt; &lt;name&gt;aliyun maven&lt;/name&gt; &lt;url&gt;http://maven.aliyun.com/nexus/content/groups/public/&lt;/url&gt; &lt;mirrorOf&gt;central&lt;/mirrorOf&gt; &lt;/mirror&gt; &lt;/mirrors&gt;]]></content>
+      <categories>
+        <category>Maven</category>
+      </categories>
+      <tags>
+        <tag>Maven</tag>
+        <tag>仓库</tag>
+        <tag>镜像</tag>
+        <tag>坐标</tag>
+      </tags>
+  </entry>
+  <entry>
     <title><![CDATA[Maven入门]]></title>
     <url>%2F2018%2F12%2F16%2FMaven%E5%85%A5%E9%97%A8%2F</url>
     <content type="text"><![CDATA[MavenMaven是基于项目对象模型（POM），可以通过一小段描述信息来管理项目的构建、报告和文档的软件项目管理工具。 环境搭建本次将在windows环境下搭建maven环境。 注意：环境中需要配置JDK 下载Maven访问Maven官网,下载你所需要的版本，一般情况下，下载已编译的版本，然后解压到相应的安装目录下。 目录结构介绍： bin：包含mvn的运行脚本 boot：一个类加载器的框架 conf：配置文件目录 lib：mvn平时所用的类库 配置环境变量下载解压安装好之后，需要进行环境变量的配置，以便在任何路径下都能执行mvn的相应运行脚本。 打开环境变量，编辑系统变量（如果此电脑由多用户使用，则编辑用户变量） 新建，变量名M2_HOME，变量值为maven的安装目录，确定。 编辑Path，增加%M2_HOME%\bin;，确定。 配置成功，打开命令行，输入mvn -v可以查看到maven的版本，Java信息和系统信息。 打开环境变量步骤：电脑邮件-属性-高级系统设置-环境变量。安装目录下最好不要有中文路径，以避免不必要的问题。 Maven目录结构良好的目录结构，有助于开发人员理解项目，也能更好的维护项目。 一般的Maven项目目录结构 12345678910|--pom.xml //项目对象模型配置文件|--src |--main |--java //源代码 `package |--resources //资源文件 |--test |--java //测试代码 `package |--resources //测试资源文件 Maven常用命令123456mvn -v //查看maven版本mvm compile //编译mvn test //测试mvn package //打包mvn clean //删除targetmvn install //安装jar包到本地仓库 创建目录的两种方式 arhetype:gennerate //按照提示进行选择 arhetype:gennerate -DgroupId=组织名，公司网址反写 -DartifactId=项目名-模块名 -Dversion=版本号 -Dversion=版本号 -Dpackage=代码存在的包名]]></content>
@@ -20,8 +34,8 @@
       </categories>
       <tags>
         <tag>hexo</tag>
-        <tag>NexT</tag>
         <tag>博客</tag>
+        <tag>NexT</tag>
       </tags>
   </entry>
   <entry>
@@ -33,8 +47,8 @@
       </categories>
       <tags>
         <tag>hexo</tag>
-        <tag>博客</tag>
         <tag>Github</tag>
+        <tag>博客</tag>
       </tags>
   </entry>
   <entry>
