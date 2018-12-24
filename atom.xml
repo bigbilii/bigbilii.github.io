@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://bigbilii.github.io/"/>
-  <updated>2018-12-21T03:46:42.944Z</updated>
+  <updated>2018-12-24T11:18:14.882Z</updated>
   <id>https://bigbilii.github.io/</id>
   
   <author>
@@ -15,6 +15,33 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>Maven依赖、聚合与继承</title>
+    <link href="https://bigbilii.github.io/2018/12/24/Maven%E4%BE%9D%E8%B5%96%E3%80%81%E8%81%9A%E5%90%88%E4%B8%8E%E7%BB%A7%E6%89%BF/"/>
+    <id>https://bigbilii.github.io/2018/12/24/Maven依赖、聚合与继承/</id>
+    <published>2018-12-24T10:10:34.000Z</published>
+    <updated>2018-12-24T11:18:14.882Z</updated>
+    
+    <content type="html"><![CDATA[<h2 id="依赖机制"><a href="#依赖机制" class="headerlink" title="依赖机制"></a>依赖机制</h2><p>依赖管理是Maven的核心机制。可以管理数百个模块组成的多模块项目和应用程序的依赖关系。</p><blockquote><p>Maven通过定义良好的ClassPath和library version，在定义、创建和维护可重现的构建方面提供大量帮助。</p></blockquote><h2 id="依赖范围"><a href="#依赖范围" class="headerlink" title="依赖范围"></a>依赖范围</h2><p>依赖范围用于限制依赖关系的传递性，还用与各种构建任务的classpath。</p><blockquote><p>Maven定义了三个classpath：编译、测试、运行</p></blockquote><p>scope标签控制依赖与classpath的关系</p><ul><li>compile：默认范围，对于编译、测试和运行三种classpath都有效。这些依赖项将传播到依赖项目。</li><li>provided：与<code>compile</code>很相似，但表示你希望JDK或容器运行时提供依赖关系。例如servlet-api。对于编译、测试的classpath有效，但对于运行无效，并且不可传递</li><li>runtime：对于运行和测试的classpath有效，编译无效。例如jdbc驱动。</li><li>test：对于测试classpath有效，对于编译和运行阶段无效，不具有传递性。</li><li>system：与<code>provided</code>相似，只是必须提供明确包含它的JAR，通过<code>systemPath</code>标签指出路径。</li><li>import：只能作用于<code>&lt;dependencyManagement&gt;</code>部分中的<code>pom</code>类型的依赖项。它用来替换依赖列表里的依赖项，不参与限制依赖的传递性。</li></ul><h2 id="依赖传递"><a href="#依赖传递" class="headerlink" title="依赖传递"></a>依赖传递</h2><p>如果A项目依赖B项目，B项目依赖C项目，则形成了依赖传递，这样A项目也依赖C项目。</p><p>如果A项目不想依赖C项目，则在<code>&lt;exlusions&gt;</code>加入<code>&lt;exlusion&gt;</code>标签，标记C的坐标即可。</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">&lt;dependency&gt;</span><br><span class="line">    &lt;groupId&gt;org.apache.hadoop&lt;/groupId&gt;</span><br><span class="line">    &lt;artifactId&gt;zookeeper&lt;/artifactId&gt;</span><br><span class="line">    &lt;version&gt;3.3.1&lt;/version&gt;</span><br><span class="line">    &lt;exclusions&gt;</span><br><span class="line">        &lt;exclusion&gt;</span><br><span class="line">            &lt;groupId&gt;jline&lt;/groupId&gt;</span><br><span class="line">            &lt;artifactId&gt;jline&lt;/artifactId&gt;</span><br><span class="line">        &lt;/exclusion&gt;</span><br><span class="line">    &lt;/exclusions&gt;</span><br><span class="line">&lt;/dependency&gt;</span><br></pre></td></tr></table></figure><h2 id="依赖冲突"><a href="#依赖冲突" class="headerlink" title="依赖冲突"></a>依赖冲突</h2><p>在依赖中，依赖了同一个包的两个版本，则Maven根据<strong>短路优先</strong>原则参数依赖。</p><h3 id="短路优先"><a href="#短路优先" class="headerlink" title="短路优先"></a>短路优先</h3><p>假设A项目中的依赖关系里，又两个X版本，依赖关系如下：</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">A-&gt;B-&gt;C-&gt;X(jar)</span><br><span class="line">A-&gt;D-&gt;X(jar)</span><br></pre></td></tr></table></figure><p>则会选择短的路径，即第二条。<br>如果路径相同，则先生命优先。</p><h2 id="聚合"><a href="#聚合" class="headerlink" title="聚合"></a>聚合</h2><p>如果想一次构建多个项目模块，则可以对多个项目模块进行聚合。</p><p>如：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">&lt;modules&gt;</span><br><span class="line">    &lt;module&gt;模块一&lt;/module&gt;</span><br><span class="line">    &lt;module&gt;模块二&lt;/module&gt;</span><br><span class="line">    &lt;module&gt;模块三&lt;/module&gt;</span><br><span class="line">&lt;/modules&gt;</span><br></pre></td></tr></table></figure></p><h2 id="继承"><a href="#继承" class="headerlink" title="继承"></a>继承</h2><p>为了消除重复，可以把配置信息提出。</p><p>如果需要继承某个项目，则在<code>&lt;parent&gt;</code>标签中添加父模块坐标（有必要时需要添加实际路径）</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">&lt;parent&gt;</span><br><span class="line">    &lt;groupId&gt;公司名&lt;/groupId&gt;</span><br><span class="line">    &lt;artifactId&gt;项目名&lt;/artifactId&gt;</span><br><span class="line">    &lt;version&gt;版本&lt;/version&gt;</span><br><span class="line">    &lt;relativePath&gt;实际路径&lt;/relativePath&gt;</span><br><span class="line">&lt;/parent&gt;</span><br></pre></td></tr></table></figure><p>子模块继承了父模块的大量元素，但注意下面几项不会被继承</p><ul><li>artifactId</li><li>name</li><li>prerequisites</li></ul><h3 id="dependencyManagement"><a href="#dependencyManagement" class="headerlink" title="dependencyManagement"></a>dependencyManagement</h3><p>由于子模块会继承父模块的全部依赖，为了方便子模块继承，父模块可以采用<code>&lt;dependencyManagement&gt;</code>进行管理，这样子模块就可以选择需要继承的依赖，不用全部继承依赖了。</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">&lt;dependencyManagement&gt;</span><br><span class="line">    &lt;dependencies&gt;</span><br><span class="line">    &lt;dependency&gt;</span><br><span class="line">        &lt;groupId&gt;junit&lt;/groupId&gt;</span><br><span class="line">        &lt;artifactId&gt;junit&lt;/artifactId&gt;</span><br><span class="line">        &lt;version&gt;$&#123;junit.version&#125;&lt;/version&gt;</span><br><span class="line">        &lt;scope&gt;test&lt;/scope&gt;</span><br><span class="line">    &lt;/dependency&gt;    </span><br><span class="line">&lt;/dependencyManagement&gt;</span><br></pre></td></tr></table></figure><h2 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h2><p><a href="https://maven.apache.org/guides/introduction/introduction-to-dependency-mechanism.html" target="_blank" rel="noopener">Maven依赖管理</a></p>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;h2 id=&quot;依赖机制&quot;&gt;&lt;a href=&quot;#依赖机制&quot; class=&quot;headerlink&quot; title=&quot;依赖机制&quot;&gt;&lt;/a&gt;依赖机制&lt;/h2&gt;&lt;p&gt;依赖管理是Maven的核心机制。可以管理数百个模块组成的多模块项目和应用程序的依赖关系。&lt;/p&gt;
+&lt;blockquote&gt;
+
+      
+    
+    </summary>
+    
+      <category term="-Maven" scheme="https://bigbilii.github.io/categories/Maven/"/>
+    
+    
+      <category term="-Maven -依赖" scheme="https://bigbilii.github.io/tags/Maven-%E4%BE%9D%E8%B5%96/"/>
+    
+  </entry>
   
   <entry>
     <title>Maven-pom常用元素</title>
@@ -150,9 +177,9 @@
     
       <category term="hexo" scheme="https://bigbilii.github.io/tags/hexo/"/>
     
-      <category term="博客" scheme="https://bigbilii.github.io/tags/%E5%8D%9A%E5%AE%A2/"/>
-    
       <category term="NexT" scheme="https://bigbilii.github.io/tags/NexT/"/>
+    
+      <category term="博客" scheme="https://bigbilii.github.io/tags/%E5%8D%9A%E5%AE%A2/"/>
     
   </entry>
   
@@ -180,9 +207,9 @@
     
       <category term="hexo" scheme="https://bigbilii.github.io/tags/hexo/"/>
     
-      <category term="Github" scheme="https://bigbilii.github.io/tags/Github/"/>
-    
       <category term="博客" scheme="https://bigbilii.github.io/tags/%E5%8D%9A%E5%AE%A2/"/>
+    
+      <category term="Github" scheme="https://bigbilii.github.io/tags/Github/"/>
     
   </entry>
   
