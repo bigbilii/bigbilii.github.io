@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://bigbilii.github.io/"/>
-  <updated>2018-12-25T10:12:35.796Z</updated>
+  <updated>2019-01-03T08:14:06.442Z</updated>
   <id>https://bigbilii.github.io/</id>
   
   <author>
@@ -15,6 +15,35 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>Vagrant+VirtualBox搭建Linux开发环境</title>
+    <link href="https://bigbilii.github.io/2019/01/03/Vagrant-Virtualbox%E6%90%AD%E5%BB%BALinux%E5%BC%80%E5%8F%91%E7%8E%AF%E5%A2%83/"/>
+    <id>https://bigbilii.github.io/2019/01/03/Vagrant-Virtualbox搭建Linux开发环境/</id>
+    <published>2019-01-03T07:02:37.000Z</published>
+    <updated>2019-01-03T08:14:06.442Z</updated>
+    
+    <content type="html"><![CDATA[<h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>现在我是用的开发环境是windows 10。然而在我之前工作中，常常会项目部署在Linux环境中，所以在开发的时候，也会经常用到Linux环境。这次我就在我本地win10环境利用Vagrant+VirtualBox搭建一个Centos7的环境。</p><h3 id="为什么选用Vagrant"><a href="#为什么选用Vagrant" class="headerlink" title="为什么选用Vagrant"></a>为什么选用Vagrant</h3><p>在我之前想要使用到Linux环境时，通常会使用虚拟机，如VirtualBox或者VMware，手动安装Linux系统和里面所需要的工作环境。</p><p>而使用Vagrant则可以省略上面的一些步骤，方便我们开发人员使用。</p><blockquote><p>Vagrant提供了易于配置，可重复和编写的工作环境，基于行业标准技术构建，由单一一致的工作流程控制，以帮助你和你的团队最大限度地提高生产力和灵活性。</p></blockquote><p>就开发人员而言，Vagrant可以大大简化我们平时配置环境的时间。只需要利用一个Vagrant文件，团队就可以创建出一个相同配置的开发环境，无论时Linux、Mac OS还是Windows。</p><h2 id="环境搭建"><a href="#环境搭建" class="headerlink" title="环境搭建"></a>环境搭建</h2><h3 id="VirtualBox"><a href="#VirtualBox" class="headerlink" title="VirtualBox"></a>VirtualBox</h3><p>在<a href="https://www.virtualbox.org/" target="_blank" rel="noopener">官网</a>下载自己环境的安装包。</p><p><em>我下载的是windows 6.0.0版本</em></p><p>下载好之后，直接安装完成即可。</p><h3 id="Vagrant"><a href="#Vagrant" class="headerlink" title="Vagrant"></a>Vagrant</h3><p>在<a href="https://www.vagrantup.com/" target="_blank" rel="noopener">官网</a>下载好自己相应环境的安装包。</p><p><em>我下载的是windows 64位 2.2.2版本</em></p><h4 id="初始化项目"><a href="#初始化项目" class="headerlink" title="初始化项目"></a>初始化项目</h4><p>下载安装完成之后，在本地创建一个目录（如dev），进入目录，然后初始化项目。</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">$ cd dev</span><br><span class="line">$ vagrant init</span><br></pre></td></tr></table></figure><h4 id="安装BOX"><a href="#安装BOX" class="headerlink" title="安装BOX"></a>安装BOX</h4><p>使用以下命令，则可以直接从官网下载box文件，并启动。</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">$ vagrant init centos/7</span><br><span class="line">$ vagrant up --provider virtualbox</span><br></pre></td></tr></table></figure><p>如果下载速度慢，则可以从<a href="http://www.vagrantbox.es/" target="_blank" rel="noopener">官网</a>下载box文件，从本地加载。</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">$ vagrant box add centos7 D:/software/boxes/centos-7.0-x86_64.box</span><br><span class="line">$ vagrant init centos7</span><br><span class="line">$ vagrant up</span><br></pre></td></tr></table></figure><p>其他Linux发行版操作类似。</p><h4 id="ssh登录"><a href="#ssh登录" class="headerlink" title="ssh登录"></a>ssh登录</h4><p>通过<code>vagrant up</code>命令，启动了刚才安装的Centos7，则可以直接通过ssh来登录虚拟机了。</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ vagrant ssh</span><br></pre></td></tr></table></figure><p><em>注意：windows中的cmd命令行不能支持ssh，需要使用其他SSH客户端</em></p><p><em>注意：使用客户端，如xShell登录时，账户密码为vagrant，一般端口为2222或者2200</em></p><h2 id="常用命令"><a href="#常用命令" class="headerlink" title="常用命令"></a>常用命令</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">vagrant box add         添加box的操作</span><br><span class="line">vagrant init            初始化box的操作，会生成vagrant的配置文件Vagrantfile</span><br><span class="line">vagrant up              启动本地环境</span><br><span class="line">vagrant ssh            通过 ssh 登录本地环境所在虚拟机</span><br><span class="line">vagrant halt            关闭本地环境</span><br><span class="line">vagrant suspend         暂停本地环境</span><br><span class="line">vagrant resume          恢复本地环境</span><br><span class="line">vagrant reload          修改了 Vagrantfile 后，使之生效（相当于先 halt，再 up）</span><br><span class="line">vagrant destroy         彻底移除本地环境</span><br><span class="line">vagrant box list        显示当前已经添加的box列表</span><br><span class="line">vagrant box remove      删除相应的box</span><br><span class="line">vagrant package         打包命令，可以把当前的运行的虚拟机环境进行打包</span><br><span class="line">vagrant plugin          用于安装卸载插件</span><br><span class="line">vagrant status          获取当前虚拟机的状态</span><br><span class="line">vagrant global-status   显示当前用户Vagrant的所有环境状态</span><br></pre></td></tr></table></figure>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;h2 id=&quot;前言&quot;&gt;&lt;a href=&quot;#前言&quot; class=&quot;headerlink&quot; title=&quot;前言&quot;&gt;&lt;/a&gt;前言&lt;/h2&gt;&lt;p&gt;现在我是用的开发环境是windows 10。然而在我之前工作中，常常会项目部署在Linux环境中，所以在开发的时候，也会经常用到Linux环
+      
+    
+    </summary>
+    
+      <category term="Vagrant" scheme="https://bigbilii.github.io/categories/Vagrant/"/>
+    
+    
+      <category term="Vagrant" scheme="https://bigbilii.github.io/tags/Vagrant/"/>
+    
+      <category term="VirtualBox" scheme="https://bigbilii.github.io/tags/VirtualBox/"/>
+    
+      <category term="Centos7" scheme="https://bigbilii.github.io/tags/Centos7/"/>
+    
+  </entry>
   
   <entry>
     <title>2018年终小结</title>

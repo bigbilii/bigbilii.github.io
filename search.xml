@@ -1,6 +1,19 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title><![CDATA[Vagrant+VirtualBox搭建Linux开发环境]]></title>
+    <url>%2F2019%2F01%2F03%2FVagrant-Virtualbox%E6%90%AD%E5%BB%BALinux%E5%BC%80%E5%8F%91%E7%8E%AF%E5%A2%83%2F</url>
+    <content type="text"><![CDATA[前言现在我是用的开发环境是windows 10。然而在我之前工作中，常常会项目部署在Linux环境中，所以在开发的时候，也会经常用到Linux环境。这次我就在我本地win10环境利用Vagrant+VirtualBox搭建一个Centos7的环境。 为什么选用Vagrant在我之前想要使用到Linux环境时，通常会使用虚拟机，如VirtualBox或者VMware，手动安装Linux系统和里面所需要的工作环境。 而使用Vagrant则可以省略上面的一些步骤，方便我们开发人员使用。 Vagrant提供了易于配置，可重复和编写的工作环境，基于行业标准技术构建，由单一一致的工作流程控制，以帮助你和你的团队最大限度地提高生产力和灵活性。 就开发人员而言，Vagrant可以大大简化我们平时配置环境的时间。只需要利用一个Vagrant文件，团队就可以创建出一个相同配置的开发环境，无论时Linux、Mac OS还是Windows。 环境搭建VirtualBox在官网下载自己环境的安装包。 我下载的是windows 6.0.0版本 下载好之后，直接安装完成即可。 Vagrant在官网下载好自己相应环境的安装包。 我下载的是windows 64位 2.2.2版本 初始化项目下载安装完成之后，在本地创建一个目录（如dev），进入目录，然后初始化项目。 12$ cd dev$ vagrant init 安装BOX使用以下命令，则可以直接从官网下载box文件，并启动。 12$ vagrant init centos/7$ vagrant up --provider virtualbox 如果下载速度慢，则可以从官网下载box文件，从本地加载。 123$ vagrant box add centos7 D:/software/boxes/centos-7.0-x86_64.box$ vagrant init centos7$ vagrant up 其他Linux发行版操作类似。 ssh登录通过vagrant up命令，启动了刚才安装的Centos7，则可以直接通过ssh来登录虚拟机了。 1$ vagrant ssh 注意：windows中的cmd命令行不能支持ssh，需要使用其他SSH客户端 注意：使用客户端，如xShell登录时，账户密码为vagrant，一般端口为2222或者2200 常用命令123456789101112131415vagrant box add 添加box的操作vagrant init 初始化box的操作，会生成vagrant的配置文件Vagrantfilevagrant up 启动本地环境vagrant ssh 通过 ssh 登录本地环境所在虚拟机vagrant halt 关闭本地环境vagrant suspend 暂停本地环境vagrant resume 恢复本地环境vagrant reload 修改了 Vagrantfile 后，使之生效（相当于先 halt，再 up）vagrant destroy 彻底移除本地环境vagrant box list 显示当前已经添加的box列表vagrant box remove 删除相应的boxvagrant package 打包命令，可以把当前的运行的虚拟机环境进行打包vagrant plugin 用于安装卸载插件vagrant status 获取当前虚拟机的状态vagrant global-status 显示当前用户Vagrant的所有环境状态]]></content>
+      <categories>
+        <category>Vagrant</category>
+      </categories>
+      <tags>
+        <tag>Vagrant</tag>
+        <tag>VirtualBox</tag>
+        <tag>Centos7</tag>
+      </tags>
+  </entry>
+  <entry>
     <title><![CDATA[2018年终小结]]></title>
     <url>%2F2018%2F12%2F25%2F2018%E5%B9%B4%E7%BB%88%E5%B0%8F%E7%BB%93%2F</url>
     <content type="text"><![CDATA[前言前几天把之前记的Maven笔记整理出来，之前也在学习Mybatis框架，可能会整理出文章来。 最近几天，在V2EX上看见有人讨论Linux发行版用哪个的问题，才发现我现在的开发环境没有Linux，随即开始着手搭建。用的是Vbox+Vagrant搭建的Centos7。之前在学校一直用的ubuntu，这次换了Centos，得好好习惯下。 流水账2018年底了，既然做了博客，就写篇年底总结来记录记录今年。下面开始流水账。 年初，作为大三下期的学生，课程当然很紧，每天课几乎都很多。但还是有空余时间，所以报了软考中级和六级考试。 到了期中，结了两门课，课程不是很多，但随即开始了3个课程设计和学校安排的实习，其中一个实习公司是Oracle。他们公司来宣讲的时候，准备了OCJP的免费考试名额作为奖励，通过考试获得，因为免费，所以没有犹豫的报名了，也顺利的拿到了名额。 5、6月份，完成了学习的课程设计，写好报告，完成了答辩。完成了软考中级，感觉良好。完成了OCJP考试，顺利通过。即将参加6级考试。参加了学校安排的生产实习，实习公司由学院安排，到的是培训机构进行实习。说是实习，其实更多像是培训，最终完成一个小组作品。这也是我第一次合作开发，学到了些东西。 期末，6级不出意外是挂了。由于感觉学校安排的实习不怎么样，我又想在秋招之前到公司实习下，故在网上投递简历。找了一家gis公司，在重庆主要和规划局做项目外包。在这家公司，实际接触到项目开发，由于不是互联网公司，作为Java开发的我，实际上做了环境搭建、部署，文档编写，测试，开发等多种工作。这也使我学到了很多东西，对项目开发的理解也具体化。 9月，在公司实习的我，想着开学之后就开始了秋招。所以一边完成工作的情况下，一边着手秋招的准备。投了一些公司，参加了百度、顺丰等的面试，但是由于一边实习，一边准备，没有准备太充分，所以效果都不太好，所以有了辞职的打算。 9月底，正式辞职，也就是9月底，收到猪八戒网的面试邀请，所以在家认真准备。面试非常愉快，面试官当场给我发了offer。由于猪八戒网在重庆还是很不错的公司，所以签约。 签约之后，是明年7月报道，可以提前实习。由于想在这段时间提升下自己和锻炼身体，所以没有去实习。在彻彻底底休息了一个月后，开始阅读和学习，之后搭建了博客。 总结这年，和女朋友在一起两年了，用实习工资把我的Xperia Z3换成了小米8，从水王、女流等主播那里收获了很多，喜欢上了阅读，找到了工作。 感觉自己在逐年提升，喜欢这个变化的过程，就像悉达多一样，经历，热爱。 2018年，很平常。]]></content>
