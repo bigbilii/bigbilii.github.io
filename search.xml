@@ -3,7 +3,13 @@
   <entry>
     <title><![CDATA[Shiro-入门了解]]></title>
     <url>%2F2019%2F01%2F09%2FShiro-%E5%85%A5%E9%97%A8%E4%BA%86%E8%A7%A3%2F</url>
-    <content type="text"></content>
+    <content type="text"><![CDATA[前言（废话）从泰国回来没几天，收到消息说我之前选的毕业设计题目没选上，导师通知我回学校确定题目。最终题目定下来了，是【基于关联规则的餐厅智能荐菜系统的研究与实现】。 其中的【关联规则】没接触过，需要接下来的时间去了解，但就题目而言，也就是一个餐厅点菜系统+个性化推荐。在3月份的开题报告之前，完成项目调查、分析和架构设计，同时也对数据挖掘或者机器学习方面做一些了解。 废话也不多说，接下来了解下Shiro，这个技术也会在我的毕业设计中使用。 简介Apache Shiro是Java的一个安全框架。其开源易用的特点，使得使用Shiro的人也是越来越多。 Shiro的主要功能如下： Authentication：身份认证，也就是我们日常使用的登录 Authorization：授权，也就是权限验证 Session Management：会话管理 Cache Management：缓存管理 cryptography：加密 架构从Shiro官方文档中，截取了下面的图片来了解下Shiro的核心架构。 Subject（org.apache.shiro.subject.Subject）： 主体，当前与软件交互的实体（用户、第三方服务等） SecurityManager（org.apache.shiro.mgt.SecurityManager）：Shiro的核心，SecurityManager管理则所有组件，所有具体交互都需要通过它进行控制 Authenticator（org.apache.shiro.authc.Authenticator）：认证器，负责主体的验证。当用户登录时，逻辑由Authenticator执行，并且Authenticator知道协调调用一个或多个Realms储存的用户/账号信息 Authrizer（org.apache.shiro.authz.Authorizer）：认证器，负责主体的权限验证操作。原理与认证器相识，也知道Realms储存的权限信息 SessionManager（org.apache.shiro.session.mgt.SessionManager）：会话控制器，用来管理Session的生命周期，提供强大的会话机制。可以在没有Web/Servlet或EJB容器中使用会话机制。 CacheManager（org.apache.shiro.cache.CacheManager）：缓存控制器，用来管理Cache的生命周期，提供为用户、角色、权限等的缓存机制，通过缓存来提高程序性能。 Cryptography（org.apache.shiro.crypto）密码模块，提供了一些常用的加密组件，用于比如密码的加密/解密 Realm（org.apache.shiro.realm.Realm）：Shiro和应用程序之间数据安全的【连接器】，由于Shiro并不知道用户/权限的存储方式和格式，一般需要用户自己实现Realm 了解到了Shiro的架构和组件，下一篇则会对Shiro的认证深入学习。 参考SHIRO simple. Java. Security]]></content>
+      <categories>
+        <category>Shiro</category>
+      </categories>
+      <tags>
+        <tag>Shiro</tag>
+      </tags>
   </entry>
   <entry>
     <title><![CDATA[泰国旅游小记]]></title>
@@ -112,8 +118,8 @@
       </categories>
       <tags>
         <tag>hexo</tag>
-        <tag>博客</tag>
         <tag>NexT</tag>
+        <tag>博客</tag>
       </tags>
   </entry>
   <entry>
@@ -125,8 +131,8 @@
       </categories>
       <tags>
         <tag>hexo</tag>
-        <tag>Github</tag>
         <tag>博客</tag>
+        <tag>Github</tag>
       </tags>
   </entry>
   <entry>
