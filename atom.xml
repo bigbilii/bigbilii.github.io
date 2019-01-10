@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://bigbilii.github.io/"/>
-  <updated>2019-01-09T10:39:33.612Z</updated>
+  <updated>2019-01-10T13:08:50.997Z</updated>
   <id>https://bigbilii.github.io/</id>
   
   <author>
@@ -15,6 +15,33 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>Shiro-权限管理</title>
+    <link href="https://bigbilii.github.io/2019/01/10/Shiro-%E6%9D%83%E9%99%90%E7%AE%A1%E7%90%86/"/>
+    <id>https://bigbilii.github.io/2019/01/10/Shiro-权限管理/</id>
+    <published>2019-01-10T07:35:13.000Z</published>
+    <updated>2019-01-10T13:08:50.997Z</updated>
+    
+    <content type="html"><![CDATA[<h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>昨天在写完<a href="https://bigbilii.github.io/2019/01/09/Shiro-%E5%85%A5%E9%97%A8%E4%BA%86%E8%A7%A3/">Shiro-入门了解</a>之后，了解了下【关联规则】的相关知识，其中涉及到的技术栈有Python、机器学习相关知识，但作为一个Java新手开发者，对这方面的了解甚少。所以已经将下面的技术提上了近期学习日程：</p><ul><li>Python快速入门上手：对于语言的学习不是关键，能够达到可以使用的程度就行</li><li>机器学习体系和相关知识学习：之前由于对机器学习的了解不多，所以会在之后学习下机器学习的体系和相关技术知识</li><li>关联分析算法实战：对于关联分析的相关算法进行学习和实战演练，如Apriori、FP-growth</li></ul><h2 id="权限管理"><a href="#权限管理" class="headerlink" title="权限管理"></a>权限管理</h2><p>言归正传，所谓<strong>权限管理</strong>，也就是身份验证，即在应用中证明操作的是本人。一般通过用户名/密码的方式来证明，也就是<code>principals</code>和<code>Credentials</code>组合方式。</p><p>所以需要的学术名词：</p><ul><li><strong>Subject</strong>：主体，在上篇文章中做出过介绍，这里就不累述</li><li><strong>Realms</strong>：安全数据连接对象，在上篇文章中做出过介绍，这里就不累述</li><li><strong>Principals</strong>：身份，主体识别属性，可以是任何东西，如用户名、邮箱、手机号等，需要唯一。注意：一个主体可以有多个<code>principals</code>，但是能有一个<code>Primary principals</code>，例如姓名/手机号/用户名/邮箱等</li><li><strong>Credentials</strong>：证书，用来验证机密数据，如密码/安全证书</li></ul><p>在Shiro或则其他大多数的安全框架中，Java的验证过程可以拆分成下面三个步骤：</p><ol><li>获取<code>Subject</code>的<code>principals</code>和<code>credentials</code></li><li>将获取到的<code>principals</code>和<code>credentials</code>提交给验证系统</li><li>允许访问 | 重试验证 | 拒绝</li></ol><p>在实际使用中，过程比上述复杂，但总体流程是这么回事。</p><h2 id="实际例子"><a href="#实际例子" class="headerlink" title="实际例子"></a>实际例子</h2><p>在实际例子中，将会涉及到以下方面：</p><ul><li>Shiro简单权限认证</li><li>Spring集成Shiro</li><li>自定义Realms</li></ul><h3 id="简单例子"><a href="#简单例子" class="headerlink" title="简单例子"></a>简单例子</h3><p>为了直观的了解到Shiro如何进行权限管理。编写了下面一段测试代码。</p><h4 id="依赖"><a href="#依赖" class="headerlink" title="依赖"></a>依赖</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">&lt;dependency&gt;</span><br><span class="line">    &lt;groupId&gt;org.apache.shiro&lt;/groupId&gt;</span><br><span class="line">    &lt;artifactId&gt;shiro-core&lt;/artifactId&gt;</span><br><span class="line">    &lt;version&gt;1.4.0&lt;/version&gt;</span><br><span class="line">&lt;/dependency&gt;</span><br><span class="line"></span><br><span class="line">&lt;dependency&gt;</span><br><span class="line">    &lt;groupId&gt;junit&lt;/groupId&gt;</span><br><span class="line">    &lt;artifactId&gt;junit&lt;/artifactId&gt;</span><br><span class="line">    &lt;version&gt;4.12&lt;/version&gt;</span><br><span class="line">    &lt;scope&gt;test&lt;/scope&gt;</span><br><span class="line">&lt;/dependency&gt;</span><br></pre></td></tr></table></figure><h4 id="具体代码"><a href="#具体代码" class="headerlink" title="具体代码"></a>具体代码</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br></pre></td><td class="code"><pre><span class="line">package com.bigbilii.test;</span><br><span class="line"></span><br><span class="line">import org.apache.shiro.SecurityUtils;</span><br><span class="line">import org.apache.shiro.authc.AuthenticationException;</span><br><span class="line">import org.apache.shiro.authc.UsernamePasswordToken;</span><br><span class="line">import org.apache.shiro.mgt.DefaultSecurityManager;</span><br><span class="line">import org.apache.shiro.realm.SimpleAccountRealm;</span><br><span class="line">import org.apache.shiro.subject.Subject;</span><br><span class="line">import org.junit.Assert;</span><br><span class="line">import org.junit.Before;</span><br><span class="line">import org.junit.Test;</span><br><span class="line"></span><br><span class="line">public class AuthenticationTest &#123;</span><br><span class="line"></span><br><span class="line">    /*简单的Realm*/</span><br><span class="line">    SimpleAccountRealm realm = new SimpleAccountRealm();</span><br><span class="line"></span><br><span class="line">    /*向Realm添加用户认证信息*/</span><br><span class="line">    @Before</span><br><span class="line">    public void addUser() &#123;</span><br><span class="line">        realm.addAccount(&quot;Bilii&quot;, &quot;123&quot;);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    @Test</span><br><span class="line">    public void testAuthentication() &#123;</span><br><span class="line">        /*1.构建SecurityManager环境*/</span><br><span class="line">        DefaultSecurityManager defaultSecurityManager = new DefaultSecurityManager();</span><br><span class="line"></span><br><span class="line">        /*2.添加Realm*/</span><br><span class="line">        defaultSecurityManager.setRealm(realm);</span><br><span class="line"></span><br><span class="line">        /*3.主体提交认证信息*/</span><br><span class="line">        SecurityUtils.setSecurityManager(defaultSecurityManager);</span><br><span class="line">        Subject subject = SecurityUtils.getSubject();</span><br><span class="line"></span><br><span class="line">        UsernamePasswordToken token = new UsernamePasswordToken(&quot;Bilii&quot;, &quot;123&quot;);</span><br><span class="line"></span><br><span class="line">        try &#123;</span><br><span class="line">            /*4.登录（验证身份）*/</span><br><span class="line">            subject.login(token);</span><br><span class="line">        &#125; catch (AuthenticationException e) &#123;</span><br><span class="line">            /*5.登录失败*/</span><br><span class="line">            System.out.println(&quot;登录失败&quot;);</span><br><span class="line">            e.printStackTrace();</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        Assert.assertEquals(true, subject.isAuthenticated());</span><br><span class="line"></span><br><span class="line">        /*6.登出*/</span><br><span class="line">        subject.logout();</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure><p>解释：</p><ul><li>首先需要构建<code>SecurityManager</code>环境，这里使用的new实例化</li><li>添加<code>Realm</code>，由于是简单演示，所以采用的是<code>SimpleAccountRealm</code>，并提前利用<code>addUser()</code>方法来获得认证信息。除了上述方法，还有<code>JdbcRealm</code>、<code>IniRealm</code>等自带Realm，可以更加方便的使用数据库或者配置文件来读入认证信息。后面还会利用<code>自定义Realm</code>来获取认证信息</li><li>主体提交认证信息，通过工厂类，将<code>SecurityManager</code>实例化并绑定到<code>SecurityUtils</code>,并通过<code>SecurityUtils</code>的<code>getSubject()</code>方法来获取主体，绑定到当前线程。在将从前端获得的输入认证信息实例化成<code>Token</code></li><li>登录，调用<code>subject.login()</code>方法登录。会调用<code>SecurityManager.login()</code>方法登录</li><li>登出，调用<code>subject.logout()</code>方法登录。会调用<code>SecurityManager.logout()</code>方法登录</li></ul><h4 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h4><p>上述例子，很简单，但也很清晰的描述了Shiro在认证管理时的工作流程。在实际Web项目开发中，都会结合<code>Spring</code>框架集成使用，<code>Realm</code>的逻辑也会更复杂，所以需要<code>自定义Ream</code>来实际结合业务逻辑，之后的文章会详细讲下如何在<code>Spring</code>中使用Shiro，以及数据库的建表注意事项。</p><h2 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h2><p><a href="http://shiro.apache.org/java-authentication-guide.html" target="_blank" rel="noopener">Java Authentication Guide with Apache Shiro</a></p>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;h2 id=&quot;前言&quot;&gt;&lt;a href=&quot;#前言&quot; class=&quot;headerlink&quot; title=&quot;前言&quot;&gt;&lt;/a&gt;前言&lt;/h2&gt;&lt;p&gt;昨天在写完&lt;a href=&quot;https://bigbilii.github.io/2019/01/09/Shiro-%E5%85%A5%E9
+      
+    
+    </summary>
+    
+      <category term="Shiro" scheme="https://bigbilii.github.io/categories/Shiro/"/>
+    
+    
+      <category term="Shiro" scheme="https://bigbilii.github.io/tags/Shiro/"/>
+    
+      <category term="权限管理" scheme="https://bigbilii.github.io/tags/%E6%9D%83%E9%99%90%E7%AE%A1%E7%90%86/"/>
+    
+  </entry>
   
   <entry>
     <title>Shiro-入门了解</title>
@@ -290,9 +317,9 @@
     
       <category term="hexo" scheme="https://bigbilii.github.io/tags/hexo/"/>
     
-      <category term="NexT" scheme="https://bigbilii.github.io/tags/NexT/"/>
-    
       <category term="博客" scheme="https://bigbilii.github.io/tags/%E5%8D%9A%E5%AE%A2/"/>
+    
+      <category term="NexT" scheme="https://bigbilii.github.io/tags/NexT/"/>
     
   </entry>
   
@@ -320,9 +347,9 @@
     
       <category term="hexo" scheme="https://bigbilii.github.io/tags/hexo/"/>
     
-      <category term="博客" scheme="https://bigbilii.github.io/tags/%E5%8D%9A%E5%AE%A2/"/>
-    
       <category term="Github" scheme="https://bigbilii.github.io/tags/Github/"/>
+    
+      <category term="博客" scheme="https://bigbilii.github.io/tags/%E5%8D%9A%E5%AE%A2/"/>
     
   </entry>
   
