@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://bigbilii.github.io/"/>
-  <updated>2019-01-17T15:30:21.530Z</updated>
+  <updated>2019-02-11T08:50:50.917Z</updated>
   <id>https://bigbilii.github.io/</id>
   
   <author>
@@ -15,6 +15,35 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>毕业设计-Shiro相关知识整合应用</title>
+    <link href="https://bigbilii.github.io/2019/02/03/%E6%AF%95%E4%B8%9A%E8%AE%BE%E8%AE%A1-Shiro-Redis%E4%B8%8E%E8%AE%B0%E4%BD%8F%E6%88%91%E6%95%B4%E5%90%88%E5%BA%94%E7%94%A8/"/>
+    <id>https://bigbilii.github.io/2019/02/03/毕业设计-Shiro-Redis与记住我整合应用/</id>
+    <published>2019-02-03T08:38:40.000Z</published>
+    <updated>2019-02-11T08:50:50.917Z</updated>
+    
+    <content type="html"><![CDATA[<h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>这段时间临近过年，稍微放松了下。但还是稍微做了点事情，把课程设计的框架设计了下，总体分为前台和后台两部分，这段时间把后台管理的登录和权限控制实现了。</p><p>主要完成了下面的功能：</p><ul><li>redis实现Shiro的缓存和session控制</li><li>在线数控制与踢人</li><li>密码错误控制与锁定</li><li>验证码</li></ul><blockquote><p>项目地址：<a href="https://github.com/bigbilii/G-FoodShop" target="_blank" rel="noopener">https://github.com/bigbilii/G-FoodShop</a></p></blockquote><h2 id="Shiro-Redis"><a href="#Shiro-Redis" class="headerlink" title="Shiro+Redis"></a>Shiro+Redis</h2><p>Shiro提供了<code>org.apache.shiro.cache.CacheManager</code>、<code>org.apache.shiro.cache.Cache</code>等接口来让我们做缓存和<code>Session</code>的管理，可以利用<code>Redis</code>、<code>memcache</code>等的高速缓存或者<code>mysql</code>等的数据库来做缓存。一般用<code>Redis</code>，方便好用。</p><p>那我也是用的<code>Redis</code>，本来在网上找了教程，自己实现redis的集成，但发现了已经由大神做好了插件，则我就可以直接用。</p><h3 id="依赖添加"><a href="#依赖添加" class="headerlink" title="依赖添加"></a>依赖添加</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">&lt;dependency&gt;</span><br><span class="line">    &lt;groupId&gt;org.crazycake&lt;/groupId&gt;</span><br><span class="line">    &lt;artifactId&gt;shiro-redis&lt;/artifactId&gt;</span><br><span class="line">    &lt;version&gt;3.2.2&lt;/version&gt;</span><br><span class="line">&lt;/dependency&gt;</span><br></pre></td></tr></table></figure><h3 id="Spring配置信息"><a href="#Spring配置信息" class="headerlink" title="Spring配置信息"></a>Spring配置信息</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br></pre></td><td class="code"><pre><span class="line">&lt;!-- 配置Shiro RedisManager  --&gt;</span><br><span class="line">    &lt;bean id=&quot;redisManager&quot; class=&quot;org.crazycake.shiro.RedisManager&quot;&gt;</span><br><span class="line">        &lt;property name=&quot;host&quot; value=&quot;192.168.33.10:6379&quot;/&gt;</span><br><span class="line">    &lt;/bean&gt;</span><br><span class="line"></span><br><span class="line">    &lt;!-- 配置Shiro 缓存管理 --&gt;</span><br><span class="line">    &lt;bean id=&quot;cacheManager&quot; class=&quot;org.crazycake.shiro.RedisCacheManager&quot;&gt;</span><br><span class="line">        &lt;property name=&quot;redisManager&quot; ref=&quot;redisManager&quot;/&gt;</span><br><span class="line">        &lt;property name=&quot;principalIdFieldName&quot; value=&quot;phone&quot;/&gt;</span><br><span class="line">    &lt;/bean&gt;</span><br><span class="line"></span><br><span class="line">    &lt;!-- 配置Shiro 会话DAO层 通过redis --&gt;</span><br><span class="line">    &lt;bean id=&quot;redisSessionDAO&quot; class=&quot;org.crazycake.shiro.RedisSessionDAO&quot;&gt;</span><br><span class="line">        &lt;property name=&quot;redisManager&quot; ref=&quot;redisManager&quot;/&gt;</span><br><span class="line">    &lt;/bean&gt;</span><br><span class="line"></span><br><span class="line">    &lt;!-- 配置Shiro 会话管理 --&gt;</span><br><span class="line">    &lt;bean id=&quot;sessionManager&quot; class=&quot;org.apache.shiro.web.session.mgt.DefaultWebSessionManager&quot;&gt;</span><br><span class="line">        &lt;property name=&quot;sessionDAO&quot; ref=&quot;redisSessionDAO&quot;/&gt;</span><br><span class="line">        &lt;property name=&quot;sessionIdCookie&quot; ref=&quot;sessionIdCookie&quot;/&gt;</span><br><span class="line">    &lt;/bean&gt;</span><br><span class="line"></span><br><span class="line">    &lt;!-- Shiro安全管理器 --&gt;</span><br><span class="line">    &lt;bean id=&quot;securityManager&quot; class=&quot;org.apache.shiro.web.mgt.DefaultWebSecurityManager&quot;&gt;</span><br><span class="line">        &lt;property name=&quot;realm&quot; ref=&quot;myRealm&quot;/&gt;</span><br><span class="line">        &lt;property name=&quot;cacheManager&quot; ref=&quot;cacheManager&quot;/&gt;</span><br><span class="line">        &lt;property name=&quot;sessionManager&quot; ref=&quot;sessionManager&quot;/&gt;</span><br><span class="line">        &lt;property name=&quot;rememberMeManager&quot; ref=&quot;rememberMeManager&quot;/&gt;</span><br><span class="line">    &lt;/bean&gt;</span><br></pre></td></tr></table></figure><p>上面配置完成之后，利用log4j可以看出对redis的读取。</p><p>值得注意的是，在<code>cacheManager</code>的配置中，有个参数<code>principalIdFieldName</code>，其含义是Shiro-redis需要一个id字段来识别Redis中的授权对象。</p><p>借用<a href="http://alexxiyang.github.io/shiro-redis/" target="_blank" rel="noopener">官方文档</a>的案例说明。</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">@Override</span><br><span class="line">protected AuthenticationInfo doGetAuthenticationInfo(AuthenticationToken token) throws AuthenticationException &#123;</span><br><span class="line">    UsernamePasswordToken usernamePasswordToken = (UsernamePasswordToken)token;</span><br><span class="line">    UserInfo userInfo = new UserInfo();</span><br><span class="line">    userInfo.setUsername(usernamePasswordToken.getUsername());</span><br><span class="line">    return new SimpleAuthenticationInfo(userInfo, &quot;123456&quot;, getName());</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure><p>Shiro-redis需要从<code>UserInfo</code>中获取一个唯一标识来标记它<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">public class UserInfo implements Serializable&#123;</span><br><span class="line">    private Integer userId</span><br><span class="line">    private String username;</span><br><span class="line">    public String getUsername() &#123;</span><br><span class="line">        return username;</span><br><span class="line">    &#125;</span><br><span class="line">    public void setUsername(String username) &#123;</span><br><span class="line">        this.username = username;</span><br><span class="line">    &#125;</span><br><span class="line">    public Integer getUserId() &#123;</span><br><span class="line">        return this.userId;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p><p>则在spring配置中，需要配置唯一标识<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;property name=&quot;principalIdFieldName&quot; value=&quot;userId&quot; /&gt;</span><br></pre></td></tr></table></figure></p><p>Shiro-redis就会去调用<code>getUserId()</code>方法。</p><p>## </p>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;h2 id=&quot;前言&quot;&gt;&lt;a href=&quot;#前言&quot; class=&quot;headerlink&quot; title=&quot;前言&quot;&gt;&lt;/a&gt;前言&lt;/h2&gt;&lt;p&gt;这段时间临近过年，稍微放松了下。但还是稍微做了点事情，把课程设计的框架设计了下，总体分为前台和后台两部分，这段时间把后台管理的登录和权限控制
+      
+    
+    </summary>
+    
+      <category term="Shiro" scheme="https://bigbilii.github.io/categories/Shiro/"/>
+    
+    
+      <category term="Shiro" scheme="https://bigbilii.github.io/tags/Shiro/"/>
+    
+      <category term="Redis" scheme="https://bigbilii.github.io/tags/Redis/"/>
+    
+      <category term="验证码" scheme="https://bigbilii.github.io/tags/%E9%AA%8C%E8%AF%81%E7%A0%81/"/>
+    
+  </entry>
   
   <entry>
     <title>日常坑记录-Centos配置Redis</title>
@@ -37,9 +66,9 @@
       <category term="Centos" scheme="https://bigbilii.github.io/categories/Centos/"/>
     
     
-      <category term="Centos" scheme="https://bigbilii.github.io/tags/Centos/"/>
-    
       <category term="Redis" scheme="https://bigbilii.github.io/tags/Redis/"/>
+    
+      <category term="Centos" scheme="https://bigbilii.github.io/tags/Centos/"/>
     
   </entry>
   

@@ -69,7 +69,7 @@
 
 
 
-  <meta name="keywords" content="Hexo, NexT">
+  <meta name="keywords" content="Shiro,Redis,验证码,">
 
 
 
@@ -82,16 +82,18 @@
 
 
 
-<meta name="description" content="我不在将这个世界与我所期待的，塑造的圆满世界比照，而是接受这个世界，爱它，属于它。">
-<meta property="og:type" content="website">
-<meta property="og:title" content="郭鑫的个人博客">
-<meta property="og:url" content="https://bigbilii.github.io/tags/Centos/index.html">
+<meta name="description" content="前言这段时间临近过年，稍微放松了下。但还是稍微做了点事情，把课程设计的框架设计了下，总体分为前台和后台两部分，这段时间把后台管理的登录和权限控制实现了。 主要完成了下面的功能：  redis实现Shiro的缓存和session控制 在线数控制与踢人 密码错误控制与锁定 验证码   项目地址：https://github.com/bigbilii/G-FoodShop  Shiro+RedisShi">
+<meta name="keywords" content="Shiro,Redis,验证码">
+<meta property="og:type" content="article">
+<meta property="og:title" content="毕业设计-Shiro相关知识整合应用">
+<meta property="og:url" content="https://bigbilii.github.io/2019/02/03/毕业设计-Shiro-Redis与记住我整合应用/index.html">
 <meta property="og:site_name" content="郭鑫的个人博客">
-<meta property="og:description" content="我不在将这个世界与我所期待的，塑造的圆满世界比照，而是接受这个世界，爱它，属于它。">
+<meta property="og:description" content="前言这段时间临近过年，稍微放松了下。但还是稍微做了点事情，把课程设计的框架设计了下，总体分为前台和后台两部分，这段时间把后台管理的登录和权限控制实现了。 主要完成了下面的功能：  redis实现Shiro的缓存和session控制 在线数控制与踢人 密码错误控制与锁定 验证码   项目地址：https://github.com/bigbilii/G-FoodShop  Shiro+RedisShi">
 <meta property="og:locale" content="zh-Hans">
+<meta property="og:updated_time" content="2019-02-11T08:50:50.917Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="郭鑫的个人博客">
-<meta name="twitter:description" content="我不在将这个世界与我所期待的，塑造的圆满世界比照，而是接受这个世界，爱它，属于它。">
+<meta name="twitter:title" content="毕业设计-Shiro相关知识整合应用">
+<meta name="twitter:description" content="前言这段时间临近过年，稍微放松了下。但还是稍微做了点事情，把课程设计的框架设计了下，总体分为前台和后台两部分，这段时间把后台管理的登录和权限控制实现了。 主要完成了下面的功能：  redis实现Shiro的缓存和session控制 在线数控制与踢人 密码错误控制与锁定 验证码   项目地址：https://github.com/bigbilii/G-FoodShop  Shiro+RedisShi">
 
 
 
@@ -121,13 +123,13 @@
 
 
 
-  <link rel="canonical" href="https://bigbilii.github.io/tags/Centos/">
+  <link rel="canonical" href="https://bigbilii.github.io/2019/02/03/毕业设计-Shiro-Redis与记住我整合应用/">
 
 
 
 
 
-  <title>标签: Centos | 郭鑫的个人博客</title>
+  <title>毕业设计-Shiro相关知识整合应用 | 郭鑫的个人博客</title>
   
 
 
@@ -146,7 +148,7 @@
     
   
 
-  <div class="container sidebar-position-left ">
+  <div class="container sidebar-position-left page-post-detail">
     <div class="headband"></div>
 
     <header id="header" class="header" itemscope="" itemtype="http://schema.org/WPHeader">
@@ -282,52 +284,260 @@
           <div id="content" class="content">
             
 
-  
-  
-  
-  <div class="post-block tag">
+  <div id="posts" class="posts-expand">
+    
 
-    <div id="posts" class="posts-collapse">
-      <div class="collection-title">
-        <h1>Centos<small>标签</small>
-        </h1>
-      </div>
+  
 
-      
-        
+  
+  
+  
 
   <article class="post post-type-normal" itemscope="" itemtype="http://schema.org/Article">
-    <header class="post-header">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://bigbilii.github.io/2019/02/03/毕业设计-Shiro-Redis与记住我整合应用/">
 
-      <h2 class="post-title">
+    <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Guo Xin">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/uploads/avatar.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope="" itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="郭鑫的个人博客">
+    </span>
+
+    
+      <header class="post-header">
+
         
-            <a class="post-title-link" href="/2019/01/17/日常坑记录-Centos配置Redis/" itemprop="url">
-              
-                <span itemprop="name">日常坑记录-Centos配置Redis</span>
-              
-            </a>
         
-      </h2>
+          <h1 class="post-title" itemprop="name headline">毕业设计-Shiro相关知识整合应用</h1>
+        
 
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated" datetime="2019-01-17T22:37:01+08:00" content="2019-01-17">
-          01-17
-        </time>
-      </div>
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-02-03T16:38:40+08:00">
+                2019-02-03
+              </time>
+            
 
-    </header>
-  </article>
+            
 
+            
+          </span>
+
+          
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope="" itemtype="http://schema.org/Thing">
+                  <a href="/categories/Shiro/" itemprop="url" rel="index">
+                    <span itemprop="name">Shiro</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/2019/02/03/毕业设计-Shiro-Redis与记住我整合应用/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count valine-comment-count" data-xid="/2019/02/03/毕业设计-Shiro-Redis与记住我整合应用/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+          
+             <span id="/2019/02/03/毕业设计-Shiro-Redis与记住我整合应用/" class="leancloud_visitors" data-flag-title="毕业设计-Shiro相关知识整合应用">
+               <span class="post-meta-divider">|</span>
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i>
+               </span>
+               
+                 <span class="post-meta-item-text">阅读次数&#58;</span>
+               
+                 <span class="leancloud-visitors-count"></span>
+             </span>
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>这段时间临近过年，稍微放松了下。但还是稍微做了点事情，把课程设计的框架设计了下，总体分为前台和后台两部分，这段时间把后台管理的登录和权限控制实现了。</p>
+<p>主要完成了下面的功能：</p>
+<ul>
+<li>redis实现Shiro的缓存和session控制</li>
+<li>在线数控制与踢人</li>
+<li>密码错误控制与锁定</li>
+<li>验证码</li>
+</ul>
+<blockquote>
+<p>项目地址：<a href="https://github.com/bigbilii/G-FoodShop" target="_blank" rel="noopener">https://github.com/bigbilii/G-FoodShop</a></p>
+</blockquote>
+<h2 id="Shiro-Redis"><a href="#Shiro-Redis" class="headerlink" title="Shiro+Redis"></a>Shiro+Redis</h2><p>Shiro提供了<code>org.apache.shiro.cache.CacheManager</code>、<code>org.apache.shiro.cache.Cache</code>等接口来让我们做缓存和<code>Session</code>的管理，可以利用<code>Redis</code>、<code>memcache</code>等的高速缓存或者<code>mysql</code>等的数据库来做缓存。一般用<code>Redis</code>，方便好用。</p>
+<p>那我也是用的<code>Redis</code>，本来在网上找了教程，自己实现redis的集成，但发现了已经由大神做好了插件，则我就可以直接用。</p>
+<h3 id="依赖添加"><a href="#依赖添加" class="headerlink" title="依赖添加"></a>依赖添加</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">&lt;dependency&gt;</span><br><span class="line">    &lt;groupId&gt;org.crazycake&lt;/groupId&gt;</span><br><span class="line">    &lt;artifactId&gt;shiro-redis&lt;/artifactId&gt;</span><br><span class="line">    &lt;version&gt;3.2.2&lt;/version&gt;</span><br><span class="line">&lt;/dependency&gt;</span><br></pre></td></tr></table></figure>
+<h3 id="Spring配置信息"><a href="#Spring配置信息" class="headerlink" title="Spring配置信息"></a>Spring配置信息</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br></pre></td><td class="code"><pre><span class="line">&lt;!-- 配置Shiro RedisManager  --&gt;</span><br><span class="line">    &lt;bean id=&quot;redisManager&quot; class=&quot;org.crazycake.shiro.RedisManager&quot;&gt;</span><br><span class="line">        &lt;property name=&quot;host&quot; value=&quot;192.168.33.10:6379&quot;/&gt;</span><br><span class="line">    &lt;/bean&gt;</span><br><span class="line"></span><br><span class="line">    &lt;!-- 配置Shiro 缓存管理 --&gt;</span><br><span class="line">    &lt;bean id=&quot;cacheManager&quot; class=&quot;org.crazycake.shiro.RedisCacheManager&quot;&gt;</span><br><span class="line">        &lt;property name=&quot;redisManager&quot; ref=&quot;redisManager&quot;/&gt;</span><br><span class="line">        &lt;property name=&quot;principalIdFieldName&quot; value=&quot;phone&quot;/&gt;</span><br><span class="line">    &lt;/bean&gt;</span><br><span class="line"></span><br><span class="line">    &lt;!-- 配置Shiro 会话DAO层 通过redis --&gt;</span><br><span class="line">    &lt;bean id=&quot;redisSessionDAO&quot; class=&quot;org.crazycake.shiro.RedisSessionDAO&quot;&gt;</span><br><span class="line">        &lt;property name=&quot;redisManager&quot; ref=&quot;redisManager&quot;/&gt;</span><br><span class="line">    &lt;/bean&gt;</span><br><span class="line"></span><br><span class="line">    &lt;!-- 配置Shiro 会话管理 --&gt;</span><br><span class="line">    &lt;bean id=&quot;sessionManager&quot; class=&quot;org.apache.shiro.web.session.mgt.DefaultWebSessionManager&quot;&gt;</span><br><span class="line">        &lt;property name=&quot;sessionDAO&quot; ref=&quot;redisSessionDAO&quot;/&gt;</span><br><span class="line">        &lt;property name=&quot;sessionIdCookie&quot; ref=&quot;sessionIdCookie&quot;/&gt;</span><br><span class="line">    &lt;/bean&gt;</span><br><span class="line"></span><br><span class="line">    &lt;!-- Shiro安全管理器 --&gt;</span><br><span class="line">    &lt;bean id=&quot;securityManager&quot; class=&quot;org.apache.shiro.web.mgt.DefaultWebSecurityManager&quot;&gt;</span><br><span class="line">        &lt;property name=&quot;realm&quot; ref=&quot;myRealm&quot;/&gt;</span><br><span class="line">        &lt;property name=&quot;cacheManager&quot; ref=&quot;cacheManager&quot;/&gt;</span><br><span class="line">        &lt;property name=&quot;sessionManager&quot; ref=&quot;sessionManager&quot;/&gt;</span><br><span class="line">        &lt;property name=&quot;rememberMeManager&quot; ref=&quot;rememberMeManager&quot;/&gt;</span><br><span class="line">    &lt;/bean&gt;</span><br></pre></td></tr></table></figure>
+<p>上面配置完成之后，利用log4j可以看出对redis的读取。</p>
+<p>值得注意的是，在<code>cacheManager</code>的配置中，有个参数<code>principalIdFieldName</code>，其含义是Shiro-redis需要一个id字段来识别Redis中的授权对象。</p>
+<p>借用<a href="http://alexxiyang.github.io/shiro-redis/" target="_blank" rel="noopener">官方文档</a>的案例说明。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">@Override</span><br><span class="line">protected AuthenticationInfo doGetAuthenticationInfo(AuthenticationToken token) throws AuthenticationException &#123;</span><br><span class="line">    UsernamePasswordToken usernamePasswordToken = (UsernamePasswordToken)token;</span><br><span class="line">    UserInfo userInfo = new UserInfo();</span><br><span class="line">    userInfo.setUsername(usernamePasswordToken.getUsername());</span><br><span class="line">    return new SimpleAuthenticationInfo(userInfo, &quot;123456&quot;, getName());</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>Shiro-redis需要从<code>UserInfo</code>中获取一个唯一标识来标记它<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">public class UserInfo implements Serializable&#123;</span><br><span class="line">    private Integer userId</span><br><span class="line">    private String username;</span><br><span class="line">    public String getUsername() &#123;</span><br><span class="line">        return username;</span><br><span class="line">    &#125;</span><br><span class="line">    public void setUsername(String username) &#123;</span><br><span class="line">        this.username = username;</span><br><span class="line">    &#125;</span><br><span class="line">    public Integer getUserId() &#123;</span><br><span class="line">        return this.userId;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>则在spring配置中，需要配置唯一标识<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;property name=&quot;principalIdFieldName&quot; value=&quot;userId&quot; /&gt;</span><br></pre></td></tr></table></figure></p>
+<p>Shiro-redis就会去调用<code>getUserId()</code>方法。</p>
+<p>## </p>
 
       
     </div>
+    
+    
+    
 
+    
+
+    
+      <div>
+        <div style="padding: 10px 0; margin: 20px auto; width: 90%; text-align: center;">
+  <div>感谢支持，欢迎打赏</div>
+  <button id="rewardButton" disable="enable" onclick="var qr = document.getElementById('QR'); if (qr.style.display === 'none') {qr.style.display='block';} else {qr.style.display='none'}">
+    <span>打赏</span>
+  </button>
+  <div id="QR" style="display: none;">
+
+    
+      <div id="wechat" style="display: inline-block">
+        <img id="wechat_qr" src="/uploads/wechatpay.jpg" alt="Guo Xin 微信支付">
+        <p>微信支付</p>
+      </div>
+    
+
+    
+      <div id="alipay" style="display: inline-block">
+        <img id="alipay_qr" src="/uploads/alipay.jpg" alt="Guo Xin 支付宝">
+        <p>支付宝</p>
+      </div>
+    
+
+    
+
+  </div>
+</div>
+
+      </div>
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/Shiro/" rel="tag"># Shiro</a>
+          
+            <a href="/tags/Redis/" rel="tag"># Redis</a>
+          
+            <a href="/tags/验证码/" rel="tag"># 验证码</a>
+          
+        </div>
+      
+
+      
+      
+        <div class="post-widgets">
+        
+
+        
+
+        
+          
+          <div id="needsharebutton-postbottom">
+            <span class="btn">
+              <i class="fa fa-share-alt" aria-hidden="true"></i>
+            </span>
+          </div>
+        
+        </div>
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2019/01/17/日常坑记录-Centos配置Redis/" rel="next" title="日常坑记录-Centos配置Redis">
+                <i class="fa fa-chevron-left"></i> 日常坑记录-Centos配置Redis
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
   </div>
   
   
   
+  </article>
 
-  
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
 
 
           </div>
@@ -335,6 +545,13 @@
 
 
           
+
+  
+    <div class="comments" id="comments">
+    </div>
+  
+
+
 
         </div>
         
@@ -355,8 +572,17 @@
       
 
       
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
 
-      <section class="site-overview-wrap sidebar-panel sidebar-panel-active">
+      <section class="site-overview-wrap sidebar-panel">
         <div class="site-overview">
           <div class="site-author motion-element" itemprop="author" itemscope="" itemtype="http://schema.org/Person">
             
@@ -425,6 +651,22 @@
         </div>
       </section>
 
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#前言"><span class="nav-number">1.</span> <span class="nav-text">前言</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Shiro-Redis"><span class="nav-number">2.</span> <span class="nav-text">Shiro+Redis</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#依赖添加"><span class="nav-number">2.1.</span> <span class="nav-text">依赖添加</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Spring配置信息"><span class="nav-number">2.2.</span> <span class="nav-text">Spring配置信息</span></a></li></ol></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
       
 
       
@@ -559,6 +801,10 @@
 
 
   
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.4"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.4"></script>
+
+
 
   
 
