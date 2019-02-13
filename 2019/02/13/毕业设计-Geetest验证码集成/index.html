@@ -69,7 +69,7 @@
 
 
 
-  <meta name="keywords" content="Shiro,授权,">
+  <meta name="keywords" content="Geetest,验证码,">
 
 
 
@@ -82,18 +82,18 @@
 
 
 
-<meta name="description" content="授权管理授权管理，也就是访问控制，是控制主体对指定资源的访问权限，简单地说，就是谁有权访问什么。  Examples of authorization checks are: Is the user allowed to look at this webpage, edit this data, view this button, or print to this printer? Those a">
-<meta name="keywords" content="Shiro,授权">
+<meta name="description" content="前言上几篇文章基本把我所学的shiro知识应用完了，但为了完善登录界面，理应加个验证码，故这篇文章将Geetest验证码集成到我们系统中。  项目地址：https://github.com/bigbilii/G-FoodShop  准备因为是集成验证码不是自己实现，所以需要Geetest账号，在Geetest注册账号，在行为验证中，新增验证，选择所需要的验证方式，这里我们选择的是【登录/注册】，接">
+<meta name="keywords" content="Geetest,验证码">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Shiro-授权管理">
-<meta property="og:url" content="https://bigbilii.github.io/2019/01/12/Shiro-授权管理/index.html">
+<meta property="og:title" content="毕业设计-Geetest验证码集成">
+<meta property="og:url" content="https://bigbilii.github.io/2019/02/13/毕业设计-Geetest验证码集成/index.html">
 <meta property="og:site_name" content="郭鑫的个人博客">
-<meta property="og:description" content="授权管理授权管理，也就是访问控制，是控制主体对指定资源的访问权限，简单地说，就是谁有权访问什么。  Examples of authorization checks are: Is the user allowed to look at this webpage, edit this data, view this button, or print to this printer? Those a">
+<meta property="og:description" content="前言上几篇文章基本把我所学的shiro知识应用完了，但为了完善登录界面，理应加个验证码，故这篇文章将Geetest验证码集成到我们系统中。  项目地址：https://github.com/bigbilii/G-FoodShop  准备因为是集成验证码不是自己实现，所以需要Geetest账号，在Geetest注册账号，在行为验证中，新增验证，选择所需要的验证方式，这里我们选择的是【登录/注册】，接">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2019-01-12T06:55:18.955Z">
+<meta property="og:updated_time" content="2019-02-13T09:33:25.514Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Shiro-授权管理">
-<meta name="twitter:description" content="授权管理授权管理，也就是访问控制，是控制主体对指定资源的访问权限，简单地说，就是谁有权访问什么。  Examples of authorization checks are: Is the user allowed to look at this webpage, edit this data, view this button, or print to this printer? Those a">
+<meta name="twitter:title" content="毕业设计-Geetest验证码集成">
+<meta name="twitter:description" content="前言上几篇文章基本把我所学的shiro知识应用完了，但为了完善登录界面，理应加个验证码，故这篇文章将Geetest验证码集成到我们系统中。  项目地址：https://github.com/bigbilii/G-FoodShop  准备因为是集成验证码不是自己实现，所以需要Geetest账号，在Geetest注册账号，在行为验证中，新增验证，选择所需要的验证方式，这里我们选择的是【登录/注册】，接">
 
 
 
@@ -123,13 +123,13 @@
 
 
 
-  <link rel="canonical" href="https://bigbilii.github.io/2019/01/12/Shiro-授权管理/">
+  <link rel="canonical" href="https://bigbilii.github.io/2019/02/13/毕业设计-Geetest验证码集成/">
 
 
 
 
 
-  <title>Shiro-授权管理 | 郭鑫的个人博客</title>
+  <title>毕业设计-Geetest验证码集成 | 郭鑫的个人博客</title>
   
 
 
@@ -298,7 +298,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://bigbilii.github.io/2019/01/12/Shiro-授权管理/">
+    <link itemprop="mainEntityOfPage" href="https://bigbilii.github.io/2019/02/13/毕业设计-Geetest验证码集成/">
 
     <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Guo Xin">
@@ -315,7 +315,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">Shiro-授权管理</h1>
+          <h1 class="post-title" itemprop="name headline">毕业设计-Geetest验证码集成</h1>
         
 
         <div class="post-meta">
@@ -327,8 +327,8 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-01-12T10:50:10+08:00">
-                2019-01-12
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-02-13T16:45:53+08:00">
+                2019-02-13
               </time>
             
 
@@ -350,8 +350,8 @@
               
               
                 <span itemprop="about" itemscope="" itemtype="http://schema.org/Thing">
-                  <a href="/categories/Shiro/" itemprop="url" rel="index">
-                    <span itemprop="name">Shiro</span>
+                  <a href="/categories/Geetest/" itemprop="url" rel="index">
+                    <span itemprop="name">Geetest</span>
                   </a>
                 </span>
 
@@ -368,8 +368,8 @@
                 <span class="post-meta-item-icon">
                   <i class="fa fa-comment-o"></i>
                 </span>
-                <a href="/2019/01/12/Shiro-授权管理/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count valine-comment-count" data-xid="/2019/01/12/Shiro-授权管理/" itemprop="commentCount"></span>
+                <a href="/2019/02/13/毕业设计-Geetest验证码集成/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count valine-comment-count" data-xid="/2019/02/13/毕业设计-Geetest验证码集成/" itemprop="commentCount"></span>
                 </a>
               </span>
             
@@ -377,7 +377,7 @@
 
           
           
-             <span id="/2019/01/12/Shiro-授权管理/" class="leancloud_visitors" data-flag-title="Shiro-授权管理">
+             <span id="/2019/02/13/毕业设计-Geetest验证码集成/" class="leancloud_visitors" data-flag-title="毕业设计-Geetest验证码集成">
                <span class="post-meta-divider">|</span>
                <span class="post-meta-item-icon">
                  <i class="fa fa-eye"></i>
@@ -408,58 +408,44 @@
       
 
       
-        <h2 id="授权管理"><a href="#授权管理" class="headerlink" title="授权管理"></a>授权管理</h2><p>授权管理，也就是访问控制，是控制主体对指定资源的访问权限，简单地说，就是谁有权访问什么。</p>
+        <h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>上几篇文章基本把我所学的shiro知识应用完了，但为了完善登录界面，理应加个验证码，故这篇文章将Geetest验证码集成到我们系统中。</p>
 <blockquote>
-<p>Examples of authorization checks are: Is the user allowed to look at this webpage, edit this data, view this button, or print to this printer? Those are all decisions determining what a user has access to.</p>
+<p>项目地址：<a href="https://github.com/bigbilii/G-FoodShop" target="_blank" rel="noopener">https://github.com/bigbilii/G-FoodShop</a></p>
 </blockquote>
-<h3 id="权限"><a href="#权限" class="headerlink" title="权限"></a>权限</h3><p>权限是<code>安全策略</code>中的原子级别，描述了资源类型和可执行操作。</p>
-<p>常见的资源操作就是CRUD，也就是创建、读取、更新、删除。</p>
+<h2 id="准备"><a href="#准备" class="headerlink" title="准备"></a>准备</h2><p>因为是集成验证码不是自己实现，所以需要Geetest账号，在<a href="https://auth.geetest.com/" target="_blank" rel="noopener">Geetest</a>注册账号，在行为验证中，新增验证，选择所需要的验证方式，这里我们选择的是【登录/注册】，接下来根据他的引导和<a href="https://docs.geetest.com/install/deploy/server/java" target="_blank" rel="noopener">官方文档</a>就可以完成部署了，下面我简单介绍下。</p>
 <blockquote>
-<p>一些权限示例</p>
-<ul>
-<li>打开一个文件</li>
-<li>查看“/ user / list”网页</li>
-<li>打印文件</li>
-<li>删除’jsmith’用户</li>
-</ul>
+<p>官方文档：<a href="https://docs.geetest.com/install/deploy/server/java" target="_blank" rel="noopener">https://docs.geetest.com/install/deploy/server/java</a></p>
 </blockquote>
-<h3 id="角色"><a href="#角色" class="headerlink" title="角色"></a>角色</h3><p>角色是一个权限的集合，是为简化权限的用户管理和用户管理。</p>
-<p>值得注意的是，Shiro同时支持的两种角色。</p>
-<ul>
-<li>隐式角色：通过验证<code>角色</code>来验证用户有没有操作权限，粒度为<code>角色</code>。例如：如果你是<code>管理员</code>，你则有创建和删除的权限，而如果你是<code>浏览者</code>，你则只有查询的权限。</li>
-<li>显式角色：通过验证<code>权限</code>来验证用户有没有操作权限，粒度为<code>权限</code>。例如：如果你有<code>删除权限</code>，则你可以执行删除操作，如果你有<code>查询权限</code>，则你可以执行查询。</li>
-</ul>
-<h2 id="Shiro中的授权方式"><a href="#Shiro中的授权方式" class="headerlink" title="Shiro中的授权方式"></a>Shiro中的授权方式</h2><p>Shiro的授权可以分为四种方式：</p>
-<ul>
-<li>编程方式：在程序中以<code>if</code>和<code>else</code>代码块的方式执行授权检查</li>
-<li>JDK注解：通过授权注解的方式附加到Java程序中</li>
-<li>JSP/GSP TagLibs：可以在jsp或gsp页面中根据权限进行页面输出</li>
-</ul>
-<p>在下面的代码中，将会检查用户是否具有<code>admin</code>权限。可以看出不同方式的区别。</p>
-<h3 id="程序化授权"><a href="#程序化授权" class="headerlink" title="程序化授权"></a>程序化授权</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">Subject subject = SecurityUtils.getSubject();</span><br><span class="line"></span><br><span class="line">/*hasRole()方法判断用户的角色*/</span><br><span class="line">if (subject.hasRole(&quot;admin&quot;)) &#123;</span><br><span class="line">    //具有管理员权限</span><br><span class="line">&#125; else &#123;</span><br><span class="line">    //不具有管理员权限</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>上面代码通过隐式角色的方式来验证。为了以后更好的维护代码，下面将会采用显式的方法来实现。</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">Subject subject = SecurityUtils.getSubject();</span><br><span class="line">/*基于字符串检查权限*/</span><br><span class="line">String perm = &quot;admin:delete&quot;;</span><br><span class="line"></span><br><span class="line">if (subject.isPermitted(perm)) &#123;</span><br><span class="line">    //具有管理员的删除权限</span><br><span class="line">&#125; else &#123;</span><br><span class="line">    //不具有管理员的删除权限</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>基于字符串的权限检查，好处是简单，快速通过字符串构造权限，缺点是没有类型安全。</p>
-<p>如果需要复杂的权限功能，则需要基于权限接口实现自己的权限对象，这里就不叙述。</p>
-<h3 id="注解授权"><a href="#注解授权" class="headerlink" title="注解授权"></a>注解授权</h3><p>使用注解授权，需要应用程序启动AOP支持。有不同的AOP框架，在Shiro文档中，找到了对不同框架的帮助文档。</p>
-<p>对于AspectJ，您可以查看我们的<a href="https://github.com/apache/shiro/tree/master/samples/aspectj" target="_blank" rel="noopener">AspectJ</a>示例应用程序。</p>
-<p>对于Spring，您可以查看我们的<a href="http://shiro.apache.org/spring.html" target="_blank" rel="noopener">Spring Integration</a>文档。</p>
-<p>对于Guice，您可以查看我们的<a href="http://shiro.apache.org/guice.html" target="_blank" rel="noopener">Guice Integration</a>文档。</p>
-<p>和上面一样，采用权限和角色实现注解检查。</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">/*权限检查*/</span><br><span class="line">@RequiresPermissions(&quot;admin:delete&quot;)‏</span><br><span class="line">public void deleteGoods(UUID id ) &#123;</span><br><span class="line">    //删除物品</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">/*角色检查*/</span><br><span class="line">@RequiresPermissions(&quot;admin&quot;)‏</span><br><span class="line">public void deleteGoods(UUID id ) &#123;</span><br><span class="line">    //删除物品</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>上述如果角色权限正确，执行方法；如果错误，抛出异常。</p>
-<h3 id="JSP-TagLib授权"><a href="#JSP-TagLib授权" class="headerlink" title="JSP TagLib授权"></a>JSP TagLib授权</h3><p>对于基于JSP/GSP的Web应用，Shiro提供了一个<a href="http://shiro.apache.org/jsp-tag-library.html" target="_blank" rel="noopener">标签库</a>使用。</p>
-<p>具体使用代码如下，也是采用闲事和隐式两种方式。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line">/*引入标签库*/</span><br><span class="line">&lt;%@ taglib prefix=&quot;shiro&quot; uri=http://shiro.apache.org/tags %&gt;</span><br><span class="line">&lt;html&gt;</span><br><span class="line">&lt;body&gt;</span><br><span class="line">    /*具有admin的删除权限*/</span><br><span class="line">    &lt;shiro:hasPermission name=&quot;admin:delete&quot;&gt;</span><br><span class="line">        &lt;a href=&quot;goods/delete&quot;&gt;</span><br><span class="line">            点击删除</span><br><span class="line">        &lt;/a&gt;</span><br><span class="line">    &lt;/shiro:hasPermission&gt;</span><br><span class="line"></span><br><span class="line">    /*是否为admin角色*/</span><br><span class="line">    &lt;shiro:hasRole name=&quot;admin&quot;&gt;</span><br><span class="line">        &lt;a href=&quot;goods/delete&quot;&gt;</span><br><span class="line">            点击删除</span><br><span class="line">        &lt;/a&gt;</span><br><span class="line">    &lt;/shiro:hasRole&gt;</span><br><span class="line">&lt;/body&gt;</span><br><span class="line">&lt;/html&gt;</span><br></pre></td></tr></table></figure></p>
-<h2 id="简单例子"><a href="#简单例子" class="headerlink" title="简单例子"></a>简单例子</h2><p>本例子延续前篇的【简单例子】使用，如果没有看过，则自行跳转查看。</p>
+<h2 id="服务端部署"><a href="#服务端部署" class="headerlink" title="服务端部署"></a>服务端部署</h2><p>这里服务端是用Java做后台的，其他语言可以参考文档。</p>
 <blockquote>
-<p><a href="https://bigbilii.github.io/2019/01/10/Shiro-%E6%9D%83%E9%99%90%E7%AE%A1%E7%90%86/">Shrio-权限管理</a>的简单例子</p>
+<p>注意：jdk版本【JAVA SE 1.6及以上】、依赖【java-json.jar、servlet-api.jar】、服务器容器【tomcat 7及以上】</p>
 </blockquote>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br></pre></td><td class="code"><pre><span class="line">package com.bigbilii.test;</span><br><span class="line"></span><br><span class="line">import org.apache.shiro.SecurityUtils;</span><br><span class="line">import org.apache.shiro.authc.AuthenticationException;</span><br><span class="line">import org.apache.shiro.authc.UsernamePasswordToken;</span><br><span class="line">import org.apache.shiro.authz.AuthorizationException;</span><br><span class="line">import org.apache.shiro.mgt.DefaultSecurityManager;</span><br><span class="line">import org.apache.shiro.realm.SimpleAccountRealm;</span><br><span class="line">import org.apache.shiro.realm.jdbc.JdbcRealm;</span><br><span class="line">import org.apache.shiro.realm.text.IniRealm;</span><br><span class="line">import org.apache.shiro.subject.Subject;</span><br><span class="line">import org.junit.Assert;</span><br><span class="line">import org.junit.Before;</span><br><span class="line">import org.junit.Test;</span><br><span class="line"></span><br><span class="line">public class AuthenticationTest &#123;</span><br><span class="line"></span><br><span class="line">    /*简单的Realm*/</span><br><span class="line">    SimpleAccountRealm realm = new SimpleAccountRealm();</span><br><span class="line">    JdbcRealm jdbcRealm = new JdbcRealm();</span><br><span class="line">    IniRealm iniRealm = new IniRealm();</span><br><span class="line"></span><br><span class="line">    /*向Realm添加用户认证信息*/</span><br><span class="line">    @Before</span><br><span class="line">    public void addUser() &#123;</span><br><span class="line">        /* 添加用户，并设置成admin、user两个角色，既Bilii同时具有admin和user角色的权限*/</span><br><span class="line">        realm.addAccount(&quot;Bilii&quot;, &quot;123&quot;, &quot;admin&quot;, &quot;user&quot;);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    @Test</span><br><span class="line">    public void testAuthentication() &#123;</span><br><span class="line">        /*构建SecurityManager环境*/</span><br><span class="line">        DefaultSecurityManager defaultSecurityManager = new DefaultSecurityManager();</span><br><span class="line">        /*添加Realm*/</span><br><span class="line">        defaultSecurityManager.setRealm(realm);</span><br><span class="line"></span><br><span class="line">        /*主体提交认证信息*/</span><br><span class="line">        SecurityUtils.setSecurityManager(defaultSecurityManager);</span><br><span class="line">        Subject subject = SecurityUtils.getSubject();</span><br><span class="line"></span><br><span class="line">        UsernamePasswordToken token = new UsernamePasswordToken(&quot;Bilii&quot;, &quot;123&quot;);</span><br><span class="line"></span><br><span class="line">        try &#123;</span><br><span class="line">            /*登录（验证身份）*/</span><br><span class="line">            subject.login(token);</span><br><span class="line"></span><br><span class="line">        &#125; catch (AuthenticationException e) &#123;</span><br><span class="line">            /*登录失败*/</span><br><span class="line">            System.out.println(&quot;登录失败&quot;);</span><br><span class="line">            e.printStackTrace();</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        Assert.assertEquals(true, subject.isAuthenticated());</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">        try &#123;</span><br><span class="line">            /*检查是否具有admin权限*/</span><br><span class="line">            subject.checkRole(&quot;admin&quot;);</span><br><span class="line">        &#125; catch (AuthorizationException e) &#123;</span><br><span class="line">            /*登录失败*/</span><br><span class="line">            System.out.println(&quot;不具备admin的权限&quot;);</span><br><span class="line">            e.printStackTrace();</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        try &#123;</span><br><span class="line">            /*检查是否同时具有admin和user权限*/</span><br><span class="line">            subject.checkRoles(&quot;admin&quot;, &quot;user&quot;);</span><br><span class="line">        &#125; catch (AuthorizationException e) &#123;</span><br><span class="line">            /*登录失败*/</span><br><span class="line">            System.out.println(&quot;不同时具备admin和user的权限&quot;);</span><br><span class="line">            e.printStackTrace();</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        /*登出*/</span><br><span class="line">        subject.logout();</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>具体流程与权限管理类似，只是授权认证的具体操作是交给<code>Authorizer</code>去调用相应的方法去检查<code>Realm</code>的授权信息，具体不展开。</p>
-<p>由于上次权限管理采用的是<code>SimpleAccountRealm</code>这个简单的Realm实现类，没有权限的设置方法，既无法在初始化的时候，这是<code>Bilii</code>的具体权限，粒度在于角色。之后会有演示。</p>
-<h2 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h2><p>在授权管理中，为了便于项目维护，尽量使用<code>用户-角色</code>+<code>角色-权限</code>的设计思想，既显示角色。</p>
-<p>用了两篇文章，分别介绍了授权和登录管理的简单实现。之后会整体利用Shiro+SSM简单实现一个简单的小项目。在该项目中，将会介绍到之前没有使用的<code>自定义Realm</code>和其他一些技术。</p>
+<h3 id="下载SDK"><a href="#下载SDK" class="headerlink" title="下载SDK"></a>下载SDK</h3><p>利用命令从github下载完整项目、或手动下载，地址查看官方文档<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git clone https://github.com/GeeTeam/gt3-java-sdk.git</span><br></pre></td></tr></table></figure></p>
+<h3 id="引入SDK"><a href="#引入SDK" class="headerlink" title="引入SDK"></a>引入SDK</h3><p>将sdk项目目录下的src/sdk/GeetestLib.java文件拷入您的项目中。</p>
+<p>在您的项目中使用以下代码导入sdk<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">import sdk.GeetestLib</span><br></pre></td></tr></table></figure></p>
+<h3 id="配置密匙"><a href="#配置密匙" class="headerlink" title="配置密匙"></a>配置密匙</h3><p>由于我们项目是基于<code>Spring</code>开发的，这里通过配置文件注入密匙</p>
+<p>公钥和私钥聚在<a href="https://auth.geetest.com/" target="_blank" rel="noopener">Geetest后台</a>中获取</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">&lt;bean id=&quot;geetestLib&quot; class=&quot;me.guoxin.utils.GeetestLib&quot;&gt;</span><br><span class="line">        &lt;constructor-arg index=&quot;0&quot; value=&quot;公钥&quot;/&gt;</span><br><span class="line">        &lt;constructor-arg index=&quot;1&quot; value=&quot;私钥&quot;/&gt;</span><br><span class="line">        &lt;constructor-arg index=&quot;2&quot; value=&quot;是否开启新的failback&quot;/&gt;</span><br><span class="line">    &lt;/bean&gt;</span><br></pre></td></tr></table></figure>
+<h3 id="初始化【API1】，获取流水标识并设置状态码"><a href="#初始化【API1】，获取流水标识并设置状态码" class="headerlink" title="初始化【API1】，获取流水标识并设置状态码"></a>初始化【API1】，获取流水标识并设置状态码</h3><p>这里我新建了一个验证码<code>Controller</code>，用于初始化验证码。</p>
+<p>使用的代码大部分是官方文档的。</p>
+<p>其中请求参数<code>param</code>可选，具体参考官方文档</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br></pre></td><td class="code"><pre><span class="line">/**</span><br><span class="line"> * 申请验证码</span><br><span class="line"> */</span><br><span class="line">@Controller</span><br><span class="line">public class ValidateController &#123;</span><br><span class="line"></span><br><span class="line">    @Resource</span><br><span class="line">    private GeetestLib geetestLib;</span><br><span class="line"></span><br><span class="line">    @RequestMapping(value = &quot;/getValidate&quot;, method = RequestMethod.GET)</span><br><span class="line">    public void getValidateCode(HttpServletResponse response, HttpServletRequest request) throws IOException &#123;</span><br><span class="line">        GeetestLib gtSdk = geetestLib;</span><br><span class="line"></span><br><span class="line">        String resStr = &quot;&#123;&#125;&quot;;</span><br><span class="line"></span><br><span class="line">        /*自定义userid*/</span><br><span class="line">        String userid = &quot;gfsUserId&quot;;</span><br><span class="line">        /*用户ip*/</span><br><span class="line">        String ip_address = request.getRemoteAddr();</span><br><span class="line"></span><br><span class="line">        if (ip_address == null || &quot;&quot;.equalsIgnoreCase(ip_address.trim())) &#123;</span><br><span class="line">            ip_address = &quot;unknow&quot;;/*这是为未知*/</span><br><span class="line">        &#125;</span><br><span class="line">        HashMap&lt;String, String&gt; param = new HashMap&lt;String, String&gt;();</span><br><span class="line">        param.put(&quot;user_id&quot;, userid); //网站用户id</span><br><span class="line">        param.put(&quot;ip_address&quot;, ip_address); //传输用户请求验证时所携带的IP</span><br><span class="line"></span><br><span class="line">        /*进行验证预处理*/</span><br><span class="line">        int gtServerStatus = gtSdk.preProcess(param);</span><br><span class="line"></span><br><span class="line">        /*将服务器状态设置到session中*/</span><br><span class="line">        request.getSession().setAttribute(gtSdk.gtServerStatusSessionKey, gtServerStatus);</span><br><span class="line">        /*将userid设置到session中*/</span><br><span class="line">        request.getSession().setAttribute(&quot;userid&quot;, userid);</span><br><span class="line"></span><br><span class="line">        resStr = gtSdk.getResponseStr();</span><br><span class="line"></span><br><span class="line">        PrintWriter out = response.getWriter();</span><br><span class="line">        out.println(resStr);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>注意：初始化结果标识status（status=1表示初始化成功，status=0表示宕机状态）需要用户保存，在后续二次验证时会取出并进行逻辑判断。本SDK demo中使用session来存取status。</p>
+</blockquote>
+<h3 id="二次验证【API2】，正常流程和宕机情况"><a href="#二次验证【API2】，正常流程和宕机情况" class="headerlink" title="二次验证【API2】，正常流程和宕机情况"></a>二次验证【API2】，正常流程和宕机情况</h3><p>这里我们修改之前的登录接口</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br></pre></td><td class="code"><pre><span class="line">@Resource</span><br><span class="line">private GeetestLib geetestLib;</span><br><span class="line"></span><br><span class="line">/**</span><br><span class="line"> * 登录</span><br><span class="line"> * POST</span><br><span class="line"> *</span><br><span class="line"> * @param account 登录信息</span><br><span class="line"> * @return</span><br><span class="line"> * @throws Exception</span><br><span class="line"> */</span><br><span class="line">@PostMapping(value = &quot;/user/login&quot;)</span><br><span class="line">public Result login(@RequestBody Account account, HttpServletRequest request) &#123;</span><br><span class="line">    /*从session中获取验证状态值*/</span><br><span class="line">    int gt_server_status_code = (Integer) request.getSession().getAttribute(geetestLib.gtServerStatusSessionKey);</span><br><span class="line">    /*从session中获取userid*/</span><br><span class="line">    String userid = (String) request.getSession().getAttribute(&quot;userid&quot;);</span><br><span class="line">    /*获取用户ip地址*/</span><br><span class="line">    String ip_address = request.getRemoteAddr();</span><br><span class="line"></span><br><span class="line">    HashMap&lt;String, String&gt; param = new HashMap&lt;String, String&gt;();</span><br><span class="line">    param.put(&quot;user_id&quot;, userid); //网站用户id</span><br><span class="line">    param.put(&quot;ip_address&quot;, ip_address); //传输用户请求验证时所携带的IP</span><br><span class="line"></span><br><span class="line">    int gtResult = 0;</span><br><span class="line"></span><br><span class="line">    if (gt_server_status_code == 1) &#123;</span><br><span class="line">        /*gt-server正常，向gt-server进行二次验证*/</span><br><span class="line">        gtResult = geetestLib.enhencedValidateRequest(account.getGeetest_challenge(), account.getGeetest_validate(), account.getGeetest_seccode(), param);</span><br><span class="line">    &#125; else &#123;</span><br><span class="line">        /*gt-server非正常情况下，进行failback模式验证*/</span><br><span class="line">        gtResult = geetestLib.failbackValidateRequest(account.getGeetest_challenge(), account.getGeetest_validate(), account.getGeetest_seccode());</span><br><span class="line">    &#125;</span><br><span class="line">    /*验证成功*/</span><br><span class="line">    if (gtResult == 1) &#123;</span><br><span class="line">        UsernamePasswordToken token = new UsernamePasswordToken(account.getPhone(), account.getPassword(), account.isRemember());</span><br><span class="line">        log.info(&quot;login：正在登录中，登录信息为：&quot; + account);</span><br><span class="line">        Subject subject = SecurityUtils.getSubject();</span><br><span class="line">        subject.login(token);</span><br><span class="line">        log.info(&quot;login：登录成功&quot;);</span><br><span class="line">        return new ResultUtil&lt;Object&gt;().setData(null, &quot;登录成功&quot;);</span><br><span class="line">    &#125; else &#123;</span><br><span class="line">        return new ResultUtil&lt;Object&gt;().setMsg(401, &quot;验证错误&quot;);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>注意：当取出status=0时表示极验宕机，此时流程进入failback模式，后续逻辑都是在您的服务器完成，不会再向极验服务器发送网络请求。本SDK demo中，对于failback模式，只对请求参数做了简单的校验，您也可以自行设计。</p>
+</blockquote>
+<h2 id="客户端部署"><a href="#客户端部署" class="headerlink" title="客户端部署"></a>客户端部署</h2><blockquote>
+<p>注意：兼容性在IE6+、Chrome、Firefox、Safari、Opera、主流手机浏览器、iOS 及 Android上的内嵌Webview</p>
+</blockquote>
+<h3 id="引入初始化函数"><a href="#引入初始化函数" class="headerlink" title="引入初始化函数"></a>引入初始化函数</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">&lt;!-- Geetest 验证码 --&gt;</span><br><span class="line">&lt;script src=&quot;../plugins/Geetest/gt.js&quot;&gt;&lt;/script&gt;</span><br></pre></td></tr></table></figure>
+<h3 id="调用初始化函数进行初始化"><a href="#调用初始化函数进行初始化" class="headerlink" title="调用初始化函数进行初始化"></a>调用初始化函数进行初始化</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line">/**</span><br><span class="line"> * 请求验证码</span><br><span class="line"> */</span><br><span class="line">$.ajax(&#123;</span><br><span class="line">    url: &quot;/getValidate?t=&quot; + (new Date()).getTime(), // 加随机数防止缓存</span><br><span class="line">    type: &quot;get&quot;,</span><br><span class="line">    dataType: &quot;json&quot;,</span><br><span class="line">    success: function (data) &#123;</span><br><span class="line">        // 调用 initGeetest 初始化参数</span><br><span class="line">        // 参数1：配置参数</span><br><span class="line">        // 参数2：回调，回调的第一个参数验证码对象，之后可以使用它调用相应的接口</span><br><span class="line">        initGeetest(&#123;</span><br><span class="line">            gt: data.gt,</span><br><span class="line">            challenge: data.challenge,</span><br><span class="line">            new_captcha: data.new_captcha, // 用于宕机时表示是新验证码的宕机</span><br><span class="line">            offline: !data.success, // 表示用户后台检测极验服务器是否宕机，一般不需要关注</span><br><span class="line">            product: &quot;popup&quot;, // 产品形式，包括：float，popup</span><br><span class="line">            width: &quot;100%&quot;</span><br><span class="line">            // 更多配置参数请参见：http://www.geetest.com/install/sections/idx-client-sdk.html#config</span><br><span class="line">        &#125;, handler);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+<p>具体参数参考官方文档。</p>
+<h3 id="ajax方法二次验证"><a href="#ajax方法二次验证" class="headerlink" title="ajax方法二次验证"></a>ajax方法二次验证</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br></pre></td><td class="code"><pre><span class="line">var handler = function (captchaObj) &#123;</span><br><span class="line">    $(&quot;#submit&quot;).click(function (e) &#123;</span><br><span class="line">        var result = captchaObj.getValidate();</span><br><span class="line">        if (!result) &#123;</span><br><span class="line">            swal(&quot;&quot;, &quot;请完成验证&quot;, &quot;error&quot;);</span><br><span class="line">        &#125; else &#123;</span><br><span class="line">            login(result);</span><br><span class="line">        &#125;</span><br><span class="line">        e.preventDefault();</span><br><span class="line">    &#125;);</span><br><span class="line">    // 将验证码加到id为captcha的元素里，同时会有三个input的值用于表单提交</span><br><span class="line">    captchaObj.appendTo(&quot;#captcha&quot;);</span><br><span class="line">    captchaObj.onReady(function () &#123;</span><br><span class="line">        $(&quot;#wait&quot;).hide();</span><br><span class="line">    &#125;);</span><br><span class="line">    // 更多接口参考：http://www.geetest.com/install/sections/idx-client-sdk.html</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line">/**</span><br><span class="line"> * 登录</span><br><span class="line"> */</span><br><span class="line">function login(result) &#123;</span><br><span class="line">    var phone = $(&quot;#phone&quot;).val();</span><br><span class="line">    var password = $(&quot;#password&quot;).val();</span><br><span class="line">    var remenber = $(&quot;#remenber&quot;).prop(&quot;checked&quot;) === true;</span><br><span class="line">    var geetest_challenge = result.geetest_challenge;</span><br><span class="line">    var geetest_validate = result.geetest_validate;</span><br><span class="line">    var geetest_seccode = result.geetest_seccode;</span><br><span class="line">    if (isNull(phone)) &#123;</span><br><span class="line">        swal(&quot;&quot;, &quot;请输入手机号码!&quot;, &quot;error&quot;);</span><br><span class="line">        return;</span><br><span class="line">    &#125;</span><br><span class="line">    if (!validPhone(phone)) &#123;</span><br><span class="line">        swal(&quot;&quot;, &quot;请输入正确的手机号!&quot;, &quot;error&quot;);</span><br><span class="line">        return;</span><br><span class="line">    &#125;</span><br><span class="line">    if (isNull(password)) &#123;</span><br><span class="line">        swal(&quot;&quot;, &quot;请输入密码!&quot;, &quot;error&quot;);</span><br><span class="line">        return;</span><br><span class="line">    &#125;</span><br><span class="line">    if (!validPassword(password)) &#123;</span><br><span class="line">        swal(&quot;&quot;, &quot;请输入正确的密码!&quot;, &quot;error&quot;);</span><br><span class="line">        return;</span><br><span class="line">    &#125;</span><br><span class="line">    var data = &#123;</span><br><span class="line">        &quot;phone&quot;: phone,</span><br><span class="line">        &quot;password&quot;: password,</span><br><span class="line">        &quot;remember&quot;: remenber,</span><br><span class="line">        &quot;geetest_challenge&quot;: geetest_challenge,</span><br><span class="line">        &quot;geetest_validate&quot;: geetest_validate,</span><br><span class="line">        &quot;geetest_seccode&quot;: geetest_seccode</span><br><span class="line">    &#125;;</span><br><span class="line">    $.ajax(&#123;</span><br><span class="line">        type: &quot;POST&quot;,//方法类型</span><br><span class="line">        dataType: &quot;json&quot;,//预期服务器返回的数据类型</span><br><span class="line">        url: &quot;/user/login&quot;,</span><br><span class="line">        contentType: &quot;application/json; charset=utf-8&quot;,</span><br><span class="line">        data: JSON.stringify(data),</span><br><span class="line">        success: function (result) &#123;</span><br><span class="line">            var resultMsg = result.responseJSON;</span><br><span class="line">            if (result.code === 200) &#123;</span><br><span class="line">                $(location).prop(&apos;href&apos;, &apos;/gfoodshop/pages/index.html&apos;);</span><br><span class="line">            &#125; else &#123;</span><br><span class="line">                swal(&quot;&quot;, resultMsg.message, &quot;error&quot;);</span><br><span class="line">                window.location.reload();</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;,</span><br><span class="line">        error: function (result) &#123;</span><br><span class="line">            var resultMsg = result.responseJSON;</span><br><span class="line">            swal(&quot;&quot;, resultMsg.message, &quot;error&quot;);</span><br><span class="line">            window.location.reload();</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h2><p>到这里已经大功告成了，我也将我春节之前完成的内容整理完了，接下来是对【机器学习】的学习了。不过最近沉迷于【星露谷物语】，种地可太好玩了。</p>
 
       
     </div>
@@ -506,9 +492,9 @@
       
         <div class="post-tags">
           
-            <a href="/tags/Shiro/" rel="tag"># Shiro</a>
+            <a href="/tags/Geetest/" rel="tag"># Geetest</a>
           
-            <a href="/tags/授权/" rel="tag"># 授权</a>
+            <a href="/tags/验证码/" rel="tag"># 验证码</a>
           
         </div>
       
@@ -536,8 +522,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2019/01/10/Shiro-权限管理/" rel="next" title="Shiro-权限管理">
-                <i class="fa fa-chevron-left"></i> Shiro-权限管理
+              <a href="/2019/02/12/毕业设计-基于Shiro实现单一登录与踢人/" rel="next" title="毕业设计-基于Shiro实现单一登录与踢人">
+                <i class="fa fa-chevron-left"></i> 毕业设计-基于Shiro实现单一登录与踢人
               </a>
             
           </div>
@@ -545,10 +531,6 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2019/01/16/Shiro-ssm项目集成与实现/" rel="prev" title="Shiro-ssm项目集成与实现">
-                Shiro-ssm项目集成与实现 <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -692,7 +674,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#授权管理"><span class="nav-number">1.</span> <span class="nav-text">授权管理</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#权限"><span class="nav-number">1.1.</span> <span class="nav-text">权限</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#角色"><span class="nav-number">1.2.</span> <span class="nav-text">角色</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Shiro中的授权方式"><span class="nav-number">2.</span> <span class="nav-text">Shiro中的授权方式</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#程序化授权"><span class="nav-number">2.1.</span> <span class="nav-text">程序化授权</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#注解授权"><span class="nav-number">2.2.</span> <span class="nav-text">注解授权</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#JSP-TagLib授权"><span class="nav-number">2.3.</span> <span class="nav-text">JSP TagLib授权</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#简单例子"><span class="nav-number">3.</span> <span class="nav-text">简单例子</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#总结"><span class="nav-number">4.</span> <span class="nav-text">总结</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#前言"><span class="nav-number">1.</span> <span class="nav-text">前言</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#准备"><span class="nav-number">2.</span> <span class="nav-text">准备</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#服务端部署"><span class="nav-number">3.</span> <span class="nav-text">服务端部署</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#下载SDK"><span class="nav-number">3.1.</span> <span class="nav-text">下载SDK</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#引入SDK"><span class="nav-number">3.2.</span> <span class="nav-text">引入SDK</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#配置密匙"><span class="nav-number">3.3.</span> <span class="nav-text">配置密匙</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#初始化【API1】，获取流水标识并设置状态码"><span class="nav-number">3.4.</span> <span class="nav-text">初始化【API1】，获取流水标识并设置状态码</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#二次验证【API2】，正常流程和宕机情况"><span class="nav-number">3.5.</span> <span class="nav-text">二次验证【API2】，正常流程和宕机情况</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#客户端部署"><span class="nav-number">4.</span> <span class="nav-text">客户端部署</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#引入初始化函数"><span class="nav-number">4.1.</span> <span class="nav-text">引入初始化函数</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#调用初始化函数进行初始化"><span class="nav-number">4.2.</span> <span class="nav-text">调用初始化函数进行初始化</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#ajax方法二次验证"><span class="nav-number">4.3.</span> <span class="nav-text">ajax方法二次验证</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#总结"><span class="nav-number">5.</span> <span class="nav-text">总结</span></a></li></ol></div>
             
 
           </div>
